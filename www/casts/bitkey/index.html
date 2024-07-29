@@ -6,9 +6,41 @@
     <title>Bitkey CAST</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.6.1/asciinema-player.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: #0066cc;
+        }
+        .player-wrapper {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bitkey CAST</h1>
-    <asciinema-player src="world.bitkey.app.2024.63.0-4.play.2024-07-27.cast" autoplay></asciinema-player>
+    <div class="container">
+        <h1>Bitkey CAST</h1>
+        <div class="player-wrapper">
+            <asciinema-player src="world.bitkey.app.2024-07-27-1.cast" autoplay></asciinema-player>
+        </div>
+    </div>
 </body>
 </html>
