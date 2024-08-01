@@ -17,11 +17,16 @@
             color: #333;
         }
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            display: flex;
+        }
+        .column {
+            flex: 1;
+            padding: 10px;
         }
         h1 {
             font-size: 2em;
@@ -45,12 +50,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>WalletScrutiny Build Casts</h1>
-        <p>2024-07-27</p>
-        <ol>
-            <li><a href="www/casts/bitkey/index.html">Bitkey CAST</a></li>
-            <!-- Add more links as needed -->
-        </ol>
+        <div class="column">
+            <h1>WalletScrutiny Build Casts</h1>
+            <p>2024-07-27</p>
+            <ol>
+                <li><a href="www/casts/bitkey/index.html">Bitkey CAST</a></li>
+                <!-- Add more cast links as needed -->
+            </ol>
+        </div>
+        <div class="column">
+            <h1>Diffoscope Results</h1>
+            <ol>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_AndroidManifest.xml.html">AndroidManifest.xml</a></li>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_AssetManifest.json.html">AssetManifest.json</a></li>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_classes.dex.html">classes.dex</a></li>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_classes2.dex.html">classes2.dex</a></li>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_coins.json.html">coins.json</a></li>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_NOTICES.Z.html">NOTICES.Z</a></li>
+                <li><a href="www/diffoscope-results/android/com.komodoplatform.atomicdex/105/diffo-universal-apk/diffoscope.com.komodoplatform_105_resources.arsc.html">resources.arsc</a></li>
+                <!-- Add more diffoscope result links as needed -->
+            </ol>
+        </div>
     </div>
 </body>
 </html>
