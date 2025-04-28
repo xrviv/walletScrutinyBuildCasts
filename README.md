@@ -1,5 +1,5 @@
 # walletScrutinyBuildCasts
-A repository for displaying walletscrutiny asciicasts
+A repository for displaying walletscrutiny asciicasts pertaining to the reproducibile builds of Android, Desktop apps and hardware firmware. 
 
 ### Requirements
 
