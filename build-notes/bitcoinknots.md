@@ -23,12 +23,12 @@ Create a Dockerfile for the build environment:
 ```dockerfile
 FROM debian:bullseye
 
-# Install basic dependencies
+# Install dependencies
 RUN apt-get update && apt-get install -y \
     wget curl git sudo \
     build-essential libtool autotools-dev automake pkg-config \
     bsdmainutils python3 \
-    gnupg ca-certificates locales \
+    gnupg ca-certificates locales daemonize \
     && rm -rf /var/lib/apt/lists/*
 
 # Set up locale
@@ -46,8 +46,8 @@ RUN echo "builder ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/builder
 USER builder
 WORKDIR /home/builder
 
-# Install Guix using the binary installation method (more reliable for containers)
-RUN curl -sSL https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz -o guix-binary.tar.xz && \
+# Install Guix
+RUN wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz -O guix-binary.tar.xz && \
     tar -xf guix-binary.tar.xz && \
     sudo mv var/guix /var/ && \
     sudo mv gnu /gnu && \
@@ -55,12 +55,12 @@ RUN curl -sSL https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz
     sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix /usr/local/bin/ && \
     rm -rf guix-binary.tar.xz
 
-# Set up Guix channels for reproducibility
-RUN mkdir -p ~/.config/guix
-COPY channels.scm /home/builder/.config/guix/
+# Set up Guix daemon
+RUN sudo mkdir -p /var/guix /gnu/store && \
+    sudo chown -R builder:builder /var/guix /gnu/store
 
-# Initialize Guix
-RUN guix pull
+# Start Guix daemon
+RUN sudo daemonize /usr/local/bin/guix-daemon --build-users-group=guixbuild
 
 # Add Guix to PATH
 ENV PATH="/usr/local/bin:/home/builder/.config/guix/current/bin:${PATH}"
@@ -70,6 +70,7 @@ RUN mkdir -p /home/builder/cache/sources /home/builder/cache/builds /home/builde
 
 # Set working directory
 WORKDIR /home/builder/bitcoin-knots
+
 ```
 
 Create a `channels.scm` file to specify the exact Guix channels and commits:
