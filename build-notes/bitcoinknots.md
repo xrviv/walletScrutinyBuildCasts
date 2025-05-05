@@ -55,8 +55,8 @@ WORKDIR /home/builder
 # Download and verify Guix binary
 RUN wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz -O guix-binary.tar.xz && \
     wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz.sig -O guix-binary.tar.xz.sig && \
-    wget https://ftp.gnu.org/gnu/guix/signing-key.pub -O signing-key.pub && \
-    gpg --import signing-key.pub && \
+    # Import Guix release signing key from keyserver
+    gpg --keyserver hkps://keys.openpgp.org --recv-keys 3CE464558A84FDC69DB40CFB090B11993D9AEBB5 && \
     gpg --verify guix-binary.tar.xz.sig guix-binary.tar.xz && \
     tar -xf guix-binary.tar.xz && \
     sudo mv var/guix /var/ && \
