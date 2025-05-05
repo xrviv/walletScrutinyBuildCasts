@@ -42,28 +42,63 @@ ENV LC_ALL en_US.UTF-8
 RUN useradd -m -s /bin/bash builder
 RUN echo "builder ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/builder
 
+# Set up Guix build users
+RUN sudo groupadd --system guixbuild && \
+    for i in $(seq -w 1 10); do \
+        sudo useradd -g guixbuild -G guixbuild -d /var/empty -s /usr/sbin/nologin -c "Guix build user $i" --system "guixbuilder$i"; \
+    done
+
 # Switch to non-root user
 USER builder
 WORKDIR /home/builder
 
-# Install Guix
+# Download and verify Guix binary
 RUN wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz -O guix-binary.tar.xz && \
+    wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz.sig -O guix-binary.tar.xz.sig && \
+    wget https://ftp.gnu.org/gnu/guix/signing-key.pub -O signing-key.pub && \
+    gpg --import signing-key.pub && \
+    gpg --verify guix-binary.tar.xz.sig guix-binary.tar.xz && \
     tar -xf guix-binary.tar.xz && \
     sudo mv var/guix /var/ && \
     sudo mv gnu /gnu && \
     sudo mkdir -p /usr/local/bin && \
-    sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix /usr/local/bin/ && \
+    sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix /usr/local/bin/guix && \
+    sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix-daemon /usr/local/bin/guix-daemon && \
+    sudo chmod +x /usr/local/bin/guix-daemon && \
     rm -rf guix-binary.tar.xz
 
-# Set up Guix daemon
+# Set correct permissions
 RUN sudo mkdir -p /var/guix /gnu/store && \
-    sudo chown -R builder:builder /var/guix /gnu/store
+    sudo chown -R builder:builder /var/guix && \
+    sudo chmod 1775 /gnu/store
+
+# Create channels.scm file for reproducibility
+RUN mkdir -p ~/.config/guix && \
+    echo '(list (channel \
+        (name '\''guix) \
+        (url "https://git.savannah.gnu.org/git/guix.git") \
+        (branch "master") \
+        (commit "3b74a2b2fef5e5e2b545e0f1d6b3fe557a7ef08c") \
+        (introduction \
+          (make-channel-introduction \
+            "9edb3f66fd807b096b48283debdcddccfea34bad" \
+            (openpgp-fingerprint \
+              "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))' \
+    > ~/.config/guix/channels.scm
 
 # Start Guix daemon
-RUN sudo daemonize /usr/local/bin/guix-daemon --build-users-group=guixbuild
+RUN sudo mkdir -p /var/log/guix && \
+    sudo daemonize -o /var/log/guix/daemon.log -e /var/log/guix/daemon.err \
+    /usr/local/bin/guix-daemon --build-users-group=guixbuild
+
+# Initialize Guix
+RUN guix pull
 
 # Add Guix to PATH
 ENV PATH="/usr/local/bin:/home/builder/.config/guix/current/bin:${PATH}"
+
+# Verify Guix is working
+RUN guix --version
 
 # Create cache directories
 RUN mkdir -p /home/builder/cache/sources /home/builder/cache/builds /home/builder/logs
@@ -73,20 +108,7 @@ WORKDIR /home/builder/bitcoin-knots
 
 ```
 
-Create a `channels.scm` file to specify the exact Guix channels and commits:
-
-```scheme
-(list (channel
-        (name 'guix)
-        (url "https://git.savannah.gnu.org/git/guix.git")
-        (branch "master")
-        (commit "3b74a2b2fef5e5e2b545e0f1d6b3fe557a7ef08c")
-        (introduction
-          (make-channel-introduction
-            "9edb3f66fd807b096b48283debdcddccfea34bad"
-            (openpgp-fingerprint
-              "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))
-```
+The `channels.scm` file is now created directly in the Dockerfile for better reproducibility. This eliminates the need to create a separate file in the build context.
 
 Build and run the container:
 
