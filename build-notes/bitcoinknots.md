@@ -2,134 +2,162 @@
 
 **WIP:** for bitcoinknots 28.1.knots20250305
 
-Tested as of 2025-05-05 18:44 UTC+8
+Tested as of 2025-05-06 16:10 UTC+8
 
-This document outlines the reproducible build process for Bitcoin Knots using the Guix build system in a containerized environment. This approach provides the highest level of reproducibility assurance by using a fully deterministic build environment.
+This document outlines the reproducible build process for Bitcoin Knots using the Guix build system directly on the host. This approach provides the highest level of reproducibility assurance by using a fully deterministic build environment without the additional layer of Docker containerization.
 
 ## Prerequisites
 
 To perform this build, you'll need:
-- Docker installed on your system
+- A Debian/Ubuntu-based Linux system (other distributions may work with modifications)
 - At least 32GB of free disk space for Linux and Windows builds
   - The build process requires significant space for dependencies, intermediate files, and final binaries
   - Monitor disk usage during the build to prevent interruptions
 - At least 8GB of RAM (16GB recommended for faster builds)
 - Internet connection to download dependencies
+- Root/sudo access for installing packages and setting up Guix
 
-## 1. Container Setup
+## 1. Guix Installation and Setup
 
-Create a Dockerfile for the build environment:
-
-```dockerfile
-FROM debian:bullseye
-
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    wget curl git sudo \
-    build-essential libtool autotools-dev automake pkg-config \
-    bsdmainutils python3 \
-    gnupg ca-certificates locales daemonize \
-    && rm -rf /var/lib/apt/lists/*
-
-# Set up locale
-RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
-    locale-gen
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-
-# Create a non-root user
-RUN useradd -m -s /bin/bash builder
-RUN echo "builder ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/builder
-
-# Set up Guix build users
-RUN sudo groupadd --system guixbuild && \
-    for i in $(seq -w 1 10); do \
-        sudo useradd -g guixbuild -G guixbuild -d /var/empty -s /usr/sbin/nologin -c "Guix build user $i" --system "guixbuilder$i"; \
-    done
-
-# Switch to non-root user
-USER builder
-WORKDIR /home/builder
-
-# Download and verify Guix binary
-RUN wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz -O guix-binary.tar.xz && \
-    wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz.sig -O guix-binary.tar.xz.sig && \
-    # Import Guix release signing key from keyserver
-    gpg --keyserver hkps://keys.openpgp.org --recv-keys 3CE464558A84FDC69DB40CFB090B11993D9AEBB5 && \
-    gpg --verify guix-binary.tar.xz.sig guix-binary.tar.xz && \
-    tar -xf guix-binary.tar.xz && \
-    sudo mv var/guix /var/ && \
-    sudo mv gnu /gnu && \
-    sudo mkdir -p /usr/local/bin && \
-    sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix /usr/local/bin/guix && \
-    sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix-daemon /usr/local/bin/guix-daemon && \
-    sudo chmod +x /usr/local/bin/guix-daemon && \
-    rm -rf guix-binary.tar.xz
-
-# Set correct permissions
-RUN sudo mkdir -p /var/guix /gnu/store && \
-    sudo chown -R builder:builder /var/guix && \
-    sudo chmod 1775 /gnu/store
-
-# Create channels.scm file for reproducibility
-RUN mkdir -p ~/.config/guix && \
-    echo '(list (channel \
-        (name '\''guix) \
-        (url "https://git.savannah.gnu.org/git/guix.git") \
-        (branch "master") \
-        (commit "3b74a2b2fef5e5e2b545e0f1d6b3fe557a7ef08c") \
-        (introduction \
-          (make-channel-introduction \
-            "9edb3f66fd807b096b48283debdcddccfea34bad" \
-            (openpgp-fingerprint \
-              "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))' \
-    > ~/.config/guix/channels.scm
-
-# Start Guix daemon
-RUN sudo mkdir -p /var/log/guix && \
-    sudo daemonize -o /var/log/guix/daemon.log -e /var/log/guix/daemon.err \
-    /usr/local/bin/guix-daemon --build-users-group=guixbuild
-
-# Initialize Guix
-RUN guix pull
-
-# Add Guix to PATH
-ENV PATH="/usr/local/bin:/home/builder/.config/guix/current/bin:${PATH}"
-
-# Verify Guix is working
-RUN guix --version
-
-# Create cache directories
-RUN mkdir -p /home/builder/cache/sources /home/builder/cache/builds /home/builder/logs
-
-# Set working directory
-WORKDIR /home/builder/bitcoin-knots
-
-```
-
-The `channels.scm` file is now created directly in the Dockerfile for better reproducibility. This eliminates the need to create a separate file in the build context.
-
-Build and run the container:
+First, install the necessary dependencies on your system:
 
 ```bash
-# Build the Docker image
-docker build -t bitcoin-knots-builder .
+# Update package lists
+sudo apt update
 
-# Run the container with mounted volumes for output and logs
-docker run -it --name bitcoin-knots-build \
-  -v $(pwd)/output:/home/builder/output \
-  -v $(pwd)/logs:/home/builder/logs \
-  bitcoin-knots-builder
+# Install essential packages
+sudo apt install -y wget curl git build-essential gnupg ca-certificates
+```
+
+### 1.1 Install Guix
+
+You can install Guix directly from your distribution's package repository:
+
+```bash
+# Install Guix from Debian/Ubuntu repositories
+sudo apt install -y guix
+
+# Verify Guix installation
+which guix
+guix --version
+```
+
+If Guix is not available in your repository or you need a specific version, you can install it manually:
+
+```bash
+# Download the Guix binary installer
+wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz
+wget https://ftp.gnu.org/gnu/guix/guix-binary-1.4.0.x86_64-linux.tar.xz.sig
+
+# Import the signing key
+gpg --keyserver hkps://keys.openpgp.org --recv-keys 3CE464558A84FDC69DB40CFB090B11993D9AEBB5
+
+# Verify the signature
+gpg --verify guix-binary-1.4.0.x86_64-linux.tar.xz.sig guix-binary-1.4.0.x86_64-linux.tar.xz
+
+# Extract the tarball
+tar -xf guix-binary-1.4.0.x86_64-linux.tar.xz
+
+# Move files to their proper locations (requires root)
+sudo mv var/guix /var/
+sudo mv gnu /
+
+# Copy binaries to a location in your PATH
+sudo mkdir -p /usr/local/bin
+sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix /usr/local/bin/
+sudo cp -a /var/guix/profiles/per-user/root/current-guix/bin/guix-daemon /usr/local/bin/
+sudo chmod +x /usr/local/bin/guix-daemon
+
+# Clean up
+rm -rf guix-binary-1.4.0.x86_64-linux.tar.xz*
+```
+
+### 1.2 Set Up Guix Build Users
+
+Guix requires a group of build users to perform builds in isolation:
+
+```bash
+# Create guixbuild group
+sudo groupadd --system guixbuild
+
+# Create build users
+for i in $(seq -w 1 10); do
+    sudo useradd -g guixbuild -G guixbuild -d /var/empty -s /usr/sbin/nologin \
+        -c "Guix build user $i" --system "guixbuilder$i"
+done
+
+# Set correct permissions
+sudo mkdir -p /var/guix /gnu/store
+sudo chmod 1775 /gnu/store
+```
+
+### 1.3 Start the Guix Daemon
+
+The Guix daemon needs to be running for builds to work:
+
+```bash
+# Create log directory
+sudo mkdir -p /var/log/guix
+
+# Start the daemon
+sudo guix-daemon --build-users-group=guixbuild &
+
+# Alternatively, if you have systemd:
+# sudo systemctl enable guix-daemon
+# sudo systemctl start guix-daemon
+```
+
+### 1.4 Set Up Guix Channels for Reproducibility
+
+Create a channels configuration file to ensure reproducibility:
+
+```bash
+# Create directory for Guix configuration
+mkdir -p ~/.config/guix
+
+# Create channels.scm file
+cat > ~/.config/guix/channels.scm << 'EOF'
+(list (channel
+        (name 'guix)
+        (url "https://git.savannah.gnu.org/git/guix.git")
+        (branch "master")
+        (commit "e1c81df2cfb0d6f1e490083ad1b2b7f8df313bfd")
+        (introduction
+          (make-channel-introduction
+            "9edb3f66fd807b096b48283debdcddccfea34bad"
+            (openpgp-fingerprint
+              "BBB0 2DDF 2CEA F6A8 0D1D  E643 A2A0 6DF2 A33A 54FA")))))
+EOF
+
+# Pull the specified Guix version
+guix pull
+```
+
+> **Note:** If you encounter build errors with the specified commit, try using a more recent commit from the Guix repository. You can find recent commits at https://git.savannah.gnu.org/cgit/guix.git/
+
+### 1.5 Create Cache Directories
+
+Setting up cache directories will make future builds faster:
+
+```bash
+# Create cache directories
+mkdir -p ~/work/builds/cache/sources
+mkdir -p ~/work/builds/cache/builds
+mkdir -p ~/work/builds/desktop/bitcoinknots/logs
 ```
 
 ## 2. Repository Setup
 
-Inside the container, clone the Bitcoin Knots repository:
+Create a directory for the Bitcoin Knots source code and clone the repository:
 
 ```bash
+# Create directory if it doesn't exist
+mkdir -p ~/work/builds/desktop/bitcoinknots
+cd ~/work/builds/desktop/bitcoinknots
+
 # Clone the repository
-git clone https://github.com/bitcoinknots/bitcoin.git .
+git clone https://github.com/bitcoinknots/bitcoin.git
+cd bitcoin
 
 # Fetch all tags and branches
 git fetch --all
@@ -164,8 +192,8 @@ Set up environment variables for the build:
 
 ```bash
 # Set cache directories - these are recognized by the depends system
-export SOURCES_PATH="/home/builder/cache/sources"
-export BASE_CACHE="/home/builder/cache/builds"
+export SOURCES_PATH="/home/dannybuntu/work/builds/cache/sources"
+export BASE_CACHE="/home/dannybuntu/work/builds/cache/builds"
 
 # Set target platforms - Linux and Windows only (excluding macOS to reduce complexity and build time)
 export HOSTS="x86_64-linux-gnu x86_64-w64-mingw32"
@@ -195,7 +223,7 @@ Start the Guix build process with logging enabled:
 
 ```bash
 # Run the build with logging
-./contrib/guix/guix-build 2>&1 | tee /home/builder/logs/build_$(date +%Y%m%d_%H%M%S).log
+./contrib/guix/guix-build 2>&1 | tee ~/work/builds/desktop/bitcoinknots/logs/build_$(date +%Y%m%d_%H%M%S).log
 ```
 
 This will take several hours to complete, especially for the first run. The Guix build system will:
@@ -204,7 +232,9 @@ This will take several hours to complete, especially for the first run. The Guix
 3. Compile Bitcoin Knots for the specified platforms
 4. Output the binaries in a directory named `guix-build-<timestamp>/outdir/`
 
-The build log will be saved to the logs directory, which is mounted to the host system for easy access and archiving.
+The build log will be saved to the logs directory for easy access and archiving.
+
+> **Important:** During the build process, you will see many repetitive messages like "SWH Vault Processing...". These are **completely normal** and expected. Guix is retrieving source code from the Software Heritage archive as part of its reproducibility guarantees. This ensures that the exact same source code is used even if original download locations become unavailable or change over time.
 
 ## 6. Verification
 
@@ -215,13 +245,16 @@ After the build completes, verify the binaries:
 BUILD_DIR=$(ls -td guix-build-* | head -1)
 
 # Create a detailed manifest of the build outputs
-find $BUILD_DIR/outdir -type f -exec sha256sum {} \; > /home/builder/logs/build_manifest.txt
+find $BUILD_DIR/outdir -type f -exec sha256sum {} \; > ~/work/builds/desktop/bitcoinknots/logs/build_manifest.txt
 
-# Copy the binaries to the mounted output volume
-cp -r $BUILD_DIR/outdir/* /home/builder/output/
+# Create an output directory for the binaries
+mkdir -p ~/work/builds/desktop/bitcoinknots/output
+
+# Copy the binaries to the output directory
+cp -r $BUILD_DIR/outdir/* ~/work/builds/desktop/bitcoinknots/output/
 
 # Generate hashes for verification
-cd /home/builder/output
+cd ~/work/builds/desktop/bitcoinknots/output
 sha256sum * > SHA256SUMS.txt
 ```
 
@@ -231,8 +264,8 @@ Download the official Bitcoin Knots binaries and verify their authenticity:
 
 ```bash
 # Create a directory for official releases
-mkdir -p /home/builder/official
-cd /home/builder/official
+mkdir -p ~/work/builds/desktop/bitcoinknots/official
+cd ~/work/builds/desktop/bitcoinknots/official
 
 # Download official release and signature
 wget https://bitcoinknots.org/files/28.1.knots20250305/bitcoin-28.1.knots20250305-x86_64-linux-gnu.tar.gz
@@ -256,8 +289,8 @@ grep "bitcoin-28.1.knots20250305-x86_64-linux-gnu.tar.gz" SHA256SUMS | sha256sum
 tar -xzf bitcoin-28.1.knots20250305-x86_64-linux-gnu.tar.gz
 
 # Compare our built binaries with the official ones
-cd /home/builder
-DIFF_LOG=/home/builder/logs/binary_diff_$(date +%Y%m%d_%H%M%S).log
+cd ~/work/builds/desktop/bitcoinknots
+DIFF_LOG=~/work/builds/desktop/bitcoinknots/logs/binary_diff_$(date +%Y%m%d_%H%M%S).log
 echo "Binary comparison results" > $DIFF_LOG
 
 # Compare bitcoin-qt binary
@@ -281,20 +314,20 @@ Prepare a comprehensive report for WalletScrutiny.com:
 
 ```bash
 # Create a report directory
-mkdir -p /home/builder/output/report
+mkdir -p ~/work/builds/desktop/bitcoinknots/output/report
 
 # Collect system information
-uname -a > /home/builder/output/report/system_info.txt
-guix --version >> /home/builder/output/report/system_info.txt
+uname -a > ~/work/builds/desktop/bitcoinknots/output/report/system_info.txt
+guix --version >> ~/work/builds/desktop/bitcoinknots/output/report/system_info.txt
 
 # Copy build logs
-cp /home/builder/logs/* /home/builder/output/report/
+cp ~/work/builds/desktop/bitcoinknots/logs/* ~/work/builds/desktop/bitcoinknots/output/report/
 
 # Document build environment
-env | grep -E 'GUIX|HOSTS|SOURCES|BASE_CACHE|JOBS' > /home/builder/output/report/build_env.txt
+env | grep -E 'GUIX|HOSTS|SOURCES|BASE_CACHE|JOBS' > ~/work/builds/desktop/bitcoinknots/output/report/build_env.txt
 
 # Create a summary report
-cat > /home/builder/output/report/summary.md << EOF
+cat > ~/work/builds/desktop/bitcoinknots/output/report/summary.md << EOF
 # Bitcoin Knots v28.1.knots20250305 Reproducibility Report
 
 ## Build Information
@@ -318,3 +351,149 @@ EOF
 ```
 
 This comprehensive report will document the entire build process, verification results, and any discrepancies found.
+
+## 9. Troubleshooting
+
+### Common Guix Build Errors
+
+#### Dependency Build Failures
+
+If you encounter errors like these during the build process:
+
+```
+cannot build derivation `/gnu/store/6qa55c1s262gqh7l28i8z8hxzik2n527-boost-1.80.0.drv': 1 dependencies couldn't be built
+cannot build derivation `/gnu/store/hq19fqz4q1vdivm8fdlkgcnrig0af376-swig-4.0.2.drv': 1 dependencies couldn't be built
+```
+
+Try these solutions:
+
+1. **Update your Guix channels.scm file** to use a different commit:
+   ```bash
+   # Edit your channels.scm file with a newer commit
+   nano ~/.config/guix/channels.scm
+   
+   # After editing, pull the new version
+   guix pull
+   ```
+
+2. **Allow substitutes** by removing or modifying the `ADDITIONAL_GUIX_COMMON_FLAGS` variable:
+   ```bash
+   # Remove the --no-substitutes flag to allow using pre-built binaries
+   unset ADDITIONAL_GUIX_COMMON_FLAGS
+   # Or set it to allow authenticated substitutes
+   export ADDITIONAL_GUIX_COMMON_FLAGS='--allow-authenticated-substitutes'
+   ```
+
+3. **Clear Guix store garbage** to free up space and remove corrupted builds:
+   ```bash
+   guix gc
+   ```
+
+4. **Increase available disk space** if you're running out of space during builds.
+
+#### Guix Daemon Issues
+
+If you encounter errors related to the Guix daemon:
+
+```
+ERROR: build of `/gnu/store/7hnqzmgpvkrp2l8blxa28hbzx5ddw2k8-guix-daemon-1.4.0-24.9a2ddcc.drv' failed
+```
+
+Try these solutions:
+
+1. **Restart the Guix daemon**:
+   ```bash
+   sudo systemctl restart guix-daemon
+   # Or if not using systemd
+   sudo killall guix-daemon
+   sudo guix-daemon --build-users-group=guixbuild &
+   ```
+
+2. **Check daemon logs** for specific errors:
+   ```bash
+   sudo journalctl -u guix-daemon
+   # Or check the log files directly
+   cat /var/log/guix/daemon.log
+   ```
+
+3. **Verify permissions** on the Guix store:
+   ```bash
+   sudo chown -R root:root /gnu/store
+   sudo chmod 1775 /gnu/store
+   ```
+
+#### Network-Related Issues
+
+If you encounter network-related errors during `guix pull` or downloads:
+
+1. **Check your internet connection** and ensure you can access Guix servers:
+   ```bash
+   # Test connectivity to Guix servers
+   ping -c 4 git.savannah.gnu.org
+   ping -c 4 ci.guix.gnu.org
+   ```
+
+2. **Try a different mirror** by setting the `GUIX_SUBSTITUTE_URL` environment variable:
+   ```bash
+   export GUIX_SUBSTITUTE_URL="https://ci.guix.gnu.org https://bordeaux.guix.gnu.org"
+   ```
+
+3. **Use a different network** if available, such as a different WiFi network or a mobile hotspot.
+
+4. **Increase download timeouts**:
+   ```bash
+   export GUIX_DOWNLOAD_TIMEOUT=3600
+   ```
+
+5. **Try using a proxy or VPN** if your network might be blocking Git or Guix connections.
+
+6. **For "Connection reset by peer" errors** specifically:
+   ```bash
+   # Try pulling with fallback options
+   guix pull --fallback
+   
+   # Or try pulling with a specific substitute URL
+   guix pull --substitute-urls="https://ci.guix.gnu.org https://bordeaux.guix.gnu.org"
+   
+   # If all else fails, try with no network authentication
+   guix pull --no-authenticate
+   ```
+   > Note: Using `--no-authenticate` reduces security and should only be used temporarily when troubleshooting.
+
+#### Git-Related Errors
+
+If you encounter Git-specific errors during `guix pull`, such as "Git error: object not found - no match for id":
+
+1. **Clean the local Git cache** to force Guix to clone repositories anew:
+   ```bash
+   # Remove cached Git checkouts
+   rm -rf ~/.cache/guix/checkouts
+   ```
+
+2. **Specify a known valid commit** in your channels.scm file:
+   ```bash
+   # Edit your channels.scm with a known good commit
+   cat > ~/.config/guix/channels.scm << 'EOF'
+   (list (channel
+           (name 'guix)
+           (url "https://git.savannah.gnu.org/git/guix.git")
+           (commit "e1c81df2cfb0d6f1e490083ad1b2b7f8df313bfd")))
+   EOF
+   
+   # Then pull
+   guix pull
+   ```
+   > Note: The commit `e1c81df2cfb0d6f1e490083ad1b2b7f8df313bfd` is a known good commit from March 2025. If this commit becomes unavailable, check the Guix repository for a more recent valid commit.
+
+7. **Try pulling without specifying a commit** in your channels.scm file, which might be more reliable:
+   ```bash
+   # Edit your channels.scm to remove the commit specification
+   cat > ~/.config/guix/channels.scm << 'EOF'
+   (list (channel
+           (name 'guix)
+           (url "https://git.savannah.gnu.org/git/guix.git")))
+   EOF
+   
+   # Then pull
+   guix pull
+   ```
