@@ -1,0 +1,1303 @@
+$ ./scripts/test/hardware/bitBox2.sh 9.23.0
+Attempting to clone repository (attempt 1/3)...
+Cloning into 'bitbox02-firmware'...
+remote: Enumerating objects: 7071, done.
+remote: Counting objects: 100% (7071/7071), done.
+remote: Compressing objects: 100% (5376/5376), done.
+remote: Total 7071 (delta 1544), reused 5415 (delta 1203), pack-reused 0 (from 0)
+Receiving objects: 100% (7071/7071), 36.93 MiB | 4.55 MiB/s, done.
+Resolving deltas: 100% (1544/1544), done.
+--2025-06-23 11:09:51--  https://github.com/BitBoxSwiss/bitbox02-firmware/releases/download/firmware-btc-only%2Fv9.23.0/firmware-btc.v9.23.0.signed.bin
+Resolving github.com (github.com)... 20.205.243.166
+Connecting to github.com (github.com)|20.205.243.166|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://objects.githubusercontent.com/github-production-release-asset-2e65be/190549724/a2d21830-7f56-47eb-8565-edbe9f44f26c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250623%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250623T030951Z&X-Amz-Expires=1800&X-Amz-Signature=0dd13e9f2975a721551ce36c3f34d76430e624f5579e646759078209fbd74ccd&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dfirmware-btc.v9.23.0.signed.bin&response-content-type=application%2Foctet-stream [following]
+--2025-06-23 11:09:51--  https://objects.githubusercontent.com/github-production-release-asset-2e65be/190549724/a2d21830-7f56-47eb-8565-edbe9f44f26c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=releaseassetproduction%2F20250623%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250623T030951Z&X-Amz-Expires=1800&X-Amz-Signature=0dd13e9f2975a721551ce36c3f34d76430e624f5579e646759078209fbd74ccd&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3Dfirmware-btc.v9.23.0.signed.bin&response-content-type=application%2Foctet-stream
+Resolving objects.githubusercontent.com (objects.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.109.133, ...
+Connecting to objects.githubusercontent.com (objects.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 591236 (577K) [application/octet-stream]
+Saving to: ‘firmware-btc.v9.23.0.signed.bin’
+
+firmware-btc.v9.23.0.signed. 100%[============================================>] 577.38K  --.-KB/s    in 0.1s    
+
+2025-06-23 11:09:52 (4.23 MB/s) - ‘firmware-btc.v9.23.0.signed.bin’ saved [591236/591236]
+
+Cloning into 'temp'...
+remote: Enumerating objects: 6475, done.
+remote: Counting objects: 100% (6475/6475), done.
+remote: Compressing objects: 100% (5066/5066), done.
+remote: Total 6475 (delta 1160), reused 4883 (delta 926), pack-reused 0 (from 0)
+Receiving objects: 100% (6475/6475), 36.37 MiB | 3.54 MiB/s, done.
+Resolving deltas: 100% (1160/1160), done.
+Note: switching to '1d844fdfa40004e9b5d195ae5bf136442146df26'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Submodule 'external/cryptoauthlib' (https://github.com/BitBoxSwiss/cryptoauthlib.git) registered for path 'external/cryptoauthlib'
+Submodule 'external/embedded-swd' (https://github.com/BitBoxSwiss/embedded-swd) registered for path 'external/embedded-swd'
+Submodule 'external/libwally-core' (https://github.com/BitBoxSwiss/libwally-core.git) registered for path 'external/libwally-core'
+Submodule 'external/optiga-trust-m' (https://github.com/BitBoxSwiss/optiga-trust-m.git) registered for path 'external/optiga-trust-m'
+Submodule 'tools/ttf2ugui' (https://github.com/BitBoxSwiss/ttf2ugui) registered for path 'tools/ttf2ugui'
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/external/cryptoauthlib'...
+remote: Enumerating objects: 11087, done.        
+remote: Counting objects: 100% (4411/4411), done.        
+remote: Compressing objects: 100% (265/265), done.        
+remote: Total 11087 (delta 4201), reused 4159 (delta 4146), pack-reused 6676 (from 1)        
+Receiving objects: 100% (11087/11087), 17.20 MiB | 3.72 MiB/s, done.
+Resolving deltas: 100% (9135/9135), done.
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/external/embedded-swd'...
+remote: Enumerating objects: 35, done.        
+remote: Counting objects: 100% (21/21), done.        
+remote: Compressing objects: 100% (16/16), done.        
+remote: Total 35 (delta 8), reused 16 (delta 5), pack-reused 14 (from 1)        
+Receiving objects: 100% (35/35), 26.22 KiB | 488.00 KiB/s, done.
+Resolving deltas: 100% (11/11), done.
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/external/libwally-core'...
+remote: Enumerating objects: 6502, done.        
+remote: Counting objects: 100% (1944/1944), done.        
+remote: Compressing objects: 100% (223/223), done.        
+remote: Total 6502 (delta 1768), reused 1732 (delta 1721), pack-reused 4558 (from 1)        
+Receiving objects: 100% (6502/6502), 1.96 MiB | 3.59 MiB/s, done.
+Resolving deltas: 100% (4522/4522), done.
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/external/optiga-trust-m'...
+remote: Enumerating objects: 3034, done.        
+remote: Counting objects: 100% (187/187), done.        
+remote: Compressing objects: 100% (68/68), done.        
+remote: Total 3034 (delta 166), reused 119 (delta 119), pack-reused 2847 (from 2)        
+Receiving objects: 100% (3034/3034), 60.58 MiB | 5.30 MiB/s, done.
+Resolving deltas: 100% (1521/1521), done.
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/tools/ttf2ugui'...
+remote: Enumerating objects: 72, done.        
+remote: Counting objects: 100% (32/32), done.        
+remote: Compressing objects: 100% (9/9), done.        
+remote: Total 72 (delta 24), reused 25 (delta 23), pack-reused 40 (from 1)        
+Receiving objects: 100% (72/72), 138.99 KiB | 300.00 KiB/s, done.
+Resolving deltas: 100% (38/38), done.
+remote: Enumerating objects: 1114, done.
+remote: Counting objects: 100% (850/850), done.
+remote: Compressing objects: 100% (97/97), done.
+remote: Total 1114 (delta 774), reused 753 (delta 753), pack-reused 264 (from 1)
+Receiving objects: 100% (1114/1114), 16.02 MiB | 4.29 MiB/s, done.
+Resolving deltas: 100% (866/866), completed with 332 local objects.
+From https://github.com/BitBoxSwiss/cryptoauthlib
+ * branch            e981e09edbb902ee49d74365e66b7292ebad8934 -> FETCH_HEAD
+Submodule path 'external/cryptoauthlib': checked out 'e981e09edbb902ee49d74365e66b7292ebad8934'
+Submodule path 'external/embedded-swd': checked out 'e55d155faf34700ceb7e9d143e36b5e914f846f7'
+remote: Enumerating objects: 9212, done.
+remote: Counting objects: 100% (2602/2602), done.
+remote: Compressing objects: 100% (200/200), done.
+remote: Total 9212 (delta 2474), reused 2402 (delta 2402), pack-reused 6610 (from 2)
+Receiving objects: 100% (9212/9212), 3.60 MiB | 1.76 MiB/s, done.
+Resolving deltas: 100% (7092/7092), completed with 50 local objects.
+From https://github.com/BitBoxSwiss/libwally-core
+ * branch            61e9f0e22d412ef917537faff5e6c626f6d82b73 -> FETCH_HEAD
+Submodule path 'external/libwally-core': checked out '61e9f0e22d412ef917537faff5e6c626f6d82b73'
+Submodule 'src/secp256k1' (https://github.com/BitBoxSwiss/secp256k1-zkp.git) registered for path 'external/libwally-core/src/secp256k1'
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/external/libwally-core/src/secp256k1'...
+remote: Enumerating objects: 5361, done.        
+remote: Counting objects: 100% (1620/1620), done.        
+remote: Compressing objects: 100% (103/103), done.        
+remote: Total 5361 (delta 1529), reused 1517 (delta 1517), pack-reused 3741 (from 1)        
+Receiving objects: 100% (5361/5361), 1.99 MiB | 891.00 KiB/s, done.
+Resolving deltas: 100% (3883/3883), done.
+remote: Enumerating objects: 8875, done.
+remote: Counting objects: 100% (3264/3264), done.
+remote: Compressing objects: 100% (221/221), done.
+remote: Total 8875 (delta 3128), reused 3043 (delta 3043), pack-reused 5611 (from 1)
+Receiving objects: 100% (8875/8875), 8.30 MiB | 3.02 MiB/s, done.
+Resolving deltas: 100% (6474/6474), completed with 144 local objects.
+From https://github.com/BitBoxSwiss/secp256k1-zkp
+ * branch            a361bdc22dec88840375039cdad35bc21395f5cd -> FETCH_HEAD
+Submodule path 'external/libwally-core/src/secp256k1': checked out 'a361bdc22dec88840375039cdad35bc21395f5cd'
+remote: Enumerating objects: 442, done.
+remote: Counting objects: 100% (211/211), done.
+remote: Compressing objects: 100% (139/139), done.
+remote: Total 442 (delta 110), reused 73 (delta 72), pack-reused 231 (from 1)
+Receiving objects: 100% (442/442), 5.73 MiB | 2.68 MiB/s, done.
+Resolving deltas: 100% (191/191), completed with 9 local objects.
+From https://github.com/BitBoxSwiss/optiga-trust-m
+ * branch            5b924c8615f563334136d5a84431f1682cfce3ea -> FETCH_HEAD
+Submodule path 'external/optiga-trust-m': checked out '5b924c8615f563334136d5a84431f1682cfce3ea'
+Submodule 'external/mbedtls' (https://github.com/BitBoxSwiss/mbedtls.git) registered for path 'external/optiga-trust-m/external/mbedtls'
+Cloning into '/home/dannybuntu/wsTest/bitbox02-firmware/temp/external/optiga-trust-m/external/mbedtls'...
+remote: Enumerating objects: 199410, done.        
+remote: Total 199410 (delta 0), reused 0 (delta 0), pack-reused 199410 (from 1)        
+Receiving objects: 100% (199410/199410), 93.51 MiB | 5.47 MiB/s, done.
+Resolving deltas: 100% (155913/155913), done.
+remote: Enumerating objects: 15002, done.
+remote: Counting objects: 100% (6177/6177), done.
+remote: Total 15002 (delta 6177), reused 6177 (delta 6177), pack-reused 8825 (from 1)
+Receiving objects: 100% (15002/15002), 11.07 MiB | 3.53 MiB/s, done.
+Resolving deltas: 100% (11365/11365), completed with 546 local objects.
+From https://github.com/BitBoxSwiss/mbedtls
+ * branch                555f84735aecdbd76a566cf087ec8425dfb0c8ab -> FETCH_HEAD
+Submodule path 'external/optiga-trust-m/external/mbedtls': checked out '555f84735aecdbd76a566cf087ec8425dfb0c8ab'
+Submodule path 'tools/ttf2ugui': checked out '1d1a254065fa0852fb51fdf6efc7b4d70feae391'
+remote: Enumerating objects: 32665, done.
+remote: Counting objects: 100% (32664/32664), done.
+remote: Compressing objects: 100% (9594/9594), done.
+remote: Total 29949 (delta 21661), reused 28018 (delta 19735), pack-reused 0 (from 0)
+Receiving objects: 100% (29949/29949), 18.78 MiB | 5.07 MiB/s, done.
+Resolving deltas: 100% (21661/21661), completed with 1624 local objects.
+From https://github.com/BitBoxSwiss/bitbox02-firmware
+ * [new tag]           bootloader/v1.0.0          -> bootloader/v1.0.0
+ * [new tag]           bootloader/v1.0.1          -> bootloader/v1.0.1
+ * [new tag]           bootloader/v1.0.2          -> bootloader/v1.0.2
+ * [new tag]           bootloader/v1.0.3          -> bootloader/v1.0.3
+ * [new tag]           bootloader/v1.0.4          -> bootloader/v1.0.4
+ * [new tag]           bootloader/v1.0.5          -> bootloader/v1.0.5
+ * [new tag]           bootloader/v1.0.6          -> bootloader/v1.0.6
+ * [new tag]           bootloader/v1.1.0          -> bootloader/v1.1.0
+ * [new tag]           bootloader/v1.1.1          -> bootloader/v1.1.1
+ * [new tag]           firmware-bitboxbase/v4.3.0 -> firmware-bitboxbase/v4.3.0
+ * [new tag]           firmware-bitboxbase/v4.4.0 -> firmware-bitboxbase/v4.4.0
+ * [new tag]           firmware-btc-only/v4.1.0   -> firmware-btc-only/v4.1.0
+ * [new tag]           firmware-btc-only/v4.1.1   -> firmware-btc-only/v4.1.1
+ * [new tag]           firmware-btc-only/v4.2.0   -> firmware-btc-only/v4.2.0
+ * [new tag]           firmware-btc-only/v4.2.1   -> firmware-btc-only/v4.2.1
+ * [new tag]           firmware-btc-only/v4.2.2   -> firmware-btc-only/v4.2.2
+ * [new tag]           firmware-btc-only/v5.0.0   -> firmware-btc-only/v5.0.0
+ * [new tag]           firmware-btc-only/v6.0.0   -> firmware-btc-only/v6.0.0
+ * [new tag]           firmware-btc-only/v6.1.0   -> firmware-btc-only/v6.1.0
+ * [new tag]           firmware-btc-only/v7.0.0   -> firmware-btc-only/v7.0.0
+ * [new tag]           firmware-btc-only/v8.0.0   -> firmware-btc-only/v8.0.0
+ * [new tag]           firmware-btc-only/v9.0.0   -> firmware-btc-only/v9.0.0
+ * [new tag]           firmware-btc-only/v9.1.0   -> firmware-btc-only/v9.1.0
+ * [new tag]           firmware-btc-only/v9.1.1   -> firmware-btc-only/v9.1.1
+ * [new tag]           firmware-btc-only/v9.10.0  -> firmware-btc-only/v9.10.0
+ * [new tag]           firmware-btc-only/v9.11.0  -> firmware-btc-only/v9.11.0
+ * [new tag]           firmware-btc-only/v9.12.0  -> firmware-btc-only/v9.12.0
+ * [new tag]           firmware-btc-only/v9.13.0  -> firmware-btc-only/v9.13.0
+ * [new tag]           firmware-btc-only/v9.13.1  -> firmware-btc-only/v9.13.1
+ * [new tag]           firmware-btc-only/v9.14.0  -> firmware-btc-only/v9.14.0
+ * [new tag]           firmware-btc-only/v9.14.1  -> firmware-btc-only/v9.14.1
+ * [new tag]           firmware-btc-only/v9.15.0  -> firmware-btc-only/v9.15.0
+ * [new tag]           firmware-btc-only/v9.16.0  -> firmware-btc-only/v9.16.0
+ * [new tag]           firmware-btc-only/v9.17.0  -> firmware-btc-only/v9.17.0
+ * [new tag]           firmware-btc-only/v9.17.1  -> firmware-btc-only/v9.17.1
+ * [new tag]           firmware-btc-only/v9.18.0  -> firmware-btc-only/v9.18.0
+ * [new tag]           firmware-btc-only/v9.19.0  -> firmware-btc-only/v9.19.0
+ * [new tag]           firmware-btc-only/v9.2.0   -> firmware-btc-only/v9.2.0
+ * [new tag]           firmware-btc-only/v9.2.1   -> firmware-btc-only/v9.2.1
+ * [new tag]           firmware-btc-only/v9.20.0  -> firmware-btc-only/v9.20.0
+ * [new tag]           firmware-btc-only/v9.21.0  -> firmware-btc-only/v9.21.0
+ * [new tag]           firmware-btc-only/v9.22.0  -> firmware-btc-only/v9.22.0
+ * [new tag]           firmware-btc-only/v9.3.0   -> firmware-btc-only/v9.3.0
+ * [new tag]           firmware-btc-only/v9.3.1   -> firmware-btc-only/v9.3.1
+ * [new tag]           firmware-btc-only/v9.4.0   -> firmware-btc-only/v9.4.0
+ * [new tag]           firmware-btc-only/v9.5.0   -> firmware-btc-only/v9.5.0
+ * [new tag]           firmware-btc-only/v9.6.0   -> firmware-btc-only/v9.6.0
+ * [new tag]           firmware-btc-only/v9.7.0   -> firmware-btc-only/v9.7.0
+ * [new tag]           firmware-btc-only/v9.8.0   -> firmware-btc-only/v9.8.0
+ * [new tag]           firmware-btc-only/v9.9.0   -> firmware-btc-only/v9.9.0
+ * [new tag]           firmware/v1.0.0            -> firmware/v1.0.0
+ * [new tag]           firmware/v2.0.0            -> firmware/v2.0.0
+ * [new tag]           firmware/v3.0.0            -> firmware/v3.0.0
+ * [new tag]           firmware/v4.0.0            -> firmware/v4.0.0
+ * [new tag]           firmware/v4.1.0            -> firmware/v4.1.0
+ * [new tag]           firmware/v4.2.0            -> firmware/v4.2.0
+ * [new tag]           firmware/v4.2.1            -> firmware/v4.2.1
+ * [new tag]           firmware/v5.0.0            -> firmware/v5.0.0
+ * [new tag]           firmware/v6.0.0            -> firmware/v6.0.0
+ * [new tag]           firmware/v6.1.0            -> firmware/v6.1.0
+ * [new tag]           firmware/v7.0.0            -> firmware/v7.0.0
+ * [new tag]           firmware/v8.0.0            -> firmware/v8.0.0
+ * [new tag]           firmware/v9.0.0            -> firmware/v9.0.0
+ * [new tag]           firmware/v9.1.0            -> firmware/v9.1.0
+ * [new tag]           firmware/v9.1.1            -> firmware/v9.1.1
+ * [new tag]           firmware/v9.10.0           -> firmware/v9.10.0
+ * [new tag]           firmware/v9.11.0           -> firmware/v9.11.0
+ * [new tag]           firmware/v9.12.0           -> firmware/v9.12.0
+ * [new tag]           firmware/v9.13.0           -> firmware/v9.13.0
+ * [new tag]           firmware/v9.13.1           -> firmware/v9.13.1
+ * [new tag]           firmware/v9.14.0           -> firmware/v9.14.0
+ * [new tag]           firmware/v9.14.1           -> firmware/v9.14.1
+ * [new tag]           firmware/v9.15.0           -> firmware/v9.15.0
+ * [new tag]           firmware/v9.16.0           -> firmware/v9.16.0
+ * [new tag]           firmware/v9.17.0           -> firmware/v9.17.0
+ * [new tag]           firmware/v9.17.1           -> firmware/v9.17.1
+ * [new tag]           firmware/v9.18.0           -> firmware/v9.18.0
+ * [new tag]           firmware/v9.19.0           -> firmware/v9.19.0
+ * [new tag]           firmware/v9.2.0            -> firmware/v9.2.0
+ * [new tag]           firmware/v9.2.1            -> firmware/v9.2.1
+ * [new tag]           firmware/v9.20.0           -> firmware/v9.20.0
+ * [new tag]           firmware/v9.21.0           -> firmware/v9.21.0
+ * [new tag]           firmware/v9.22.0           -> firmware/v9.22.0
+ * [new tag]           firmware/v9.3.0            -> firmware/v9.3.0
+ * [new tag]           firmware/v9.3.1            -> firmware/v9.3.1
+ * [new tag]           firmware/v9.4.0            -> firmware/v9.4.0
+ * [new tag]           firmware/v9.5.0            -> firmware/v9.5.0
+ * [new tag]           firmware/v9.6.0            -> firmware/v9.6.0
+ * [new tag]           firmware/v9.7.0            -> firmware/v9.7.0
+ * [new tag]           firmware/v9.8.0            -> firmware/v9.8.0
+ * [new tag]           firmware/v9.9.0            -> firmware/v9.9.0
+ * [new tag]           firmware/v9.9.1            -> firmware/v9.9.1
+ * [new tag]           py-bitbox02-2.0.2          -> py-bitbox02-2.0.2
+ * [new tag]           py-bitbox02-2.0.3          -> py-bitbox02-2.0.3
+ * [new tag]           py-bitbox02-4.0.0          -> py-bitbox02-4.0.0
+ * [new tag]           py-bitbox02-4.0.1          -> py-bitbox02-4.0.1
+ * [new tag]           py-bitbox02-4.1.0          -> py-bitbox02-4.1.0
+ * [new tag]           py-bitbox02-5.0.0          -> py-bitbox02-5.0.0
+ * [new tag]           py-bitbox02-5.1.0          -> py-bitbox02-5.1.0
+ * [new tag]           py-bitbox02-5.2.0          -> py-bitbox02-5.2.0
+ * [new tag]           py-bitbox02-5.3.0          -> py-bitbox02-5.3.0
+ * [new tag]           py-bitbox02-6.0.0          -> py-bitbox02-6.0.0
+ * [new tag]           py-bitbox02-6.1.0          -> py-bitbox02-6.1.0
+ * [new tag]           py-bitbox02-6.1.1          -> py-bitbox02-6.1.1
+ * [new tag]           py-bitbox02-6.2.0          -> py-bitbox02-6.2.0
+ * [new tag]           py-bitbox02-6.3.0          -> py-bitbox02-6.3.0
+Fetching submodule external/cryptoauthlib
+From https://github.com/BitBoxSwiss/cryptoauthlib
+ * [new tag]         v3.2.5     -> v3.2.5
+ * [new tag]         v3.3.0     -> v3.3.0
+Fetching submodule external/libwally-core
+From https://github.com/BitBoxSwiss/libwally-core
+ * [new tag]           bitbox02-firmware/1 -> bitbox02-firmware/1
+Could not access submodule 'external/FatFs' at commit bc226653
+Could not access submodule 'external/ctaes' at commit d449dd12
+Could not access submodule 'external/noise-c' at commit c21a3132
+Could not access submodule 'tools/nanopb' at commit 40a9a06a
+From https://github.com/BitBoxSwiss/libwally-core
+ * branch              32e6c1a64bc51c3d36018e10de9b4ed4cf05bff0 -> FETCH_HEAD
+ * branch              40b1c2b7b94da74e1f2a72727b27fbab0d2fb32d -> FETCH_HEAD
+ * branch              afd0542e6b2caa225524132786cd7bc0bf7ed641 -> FETCH_HEAD
+ * branch              b9d8deb4a0bc1a2bce616e582f36e75e41bf750d -> FETCH_HEAD
+ * branch              c3241ac8ba493ce7d993d05cb9524d641be47b61 -> FETCH_HEAD
+ * branch              e2980e08c662ebbc9d70a600007139e3e9cdf152 -> FETCH_HEAD
+ * branch              fb1d92c8191e83f9f8300de8b45ea7009f265267 -> FETCH_HEAD
+Fetching submodule external/libwally-core/src/secp256k1
+From https://github.com/BitBoxSwiss/secp256k1-zkp
+ * branch              5e3bd34a5eb0409f5c5f42f3c3385d7ebfcc15dc -> FETCH_HEAD
+ * branch              b2621ae1665fd866a80e95a140ba2fca465926e4 -> FETCH_HEAD
+ * branch              cfbec4074fed2b173d5c55313c0777542815f227 -> FETCH_HEAD
+From https://github.com/BitBoxSwiss/cryptoauthlib
+ * branch            1b3e54c1febf10b570c2263ce921e8956ca66dea -> FETCH_HEAD
+ * branch            63f4ad4ea18582919153ed3ab259c33e56afb75f -> FETCH_HEAD
+[+] Building 663.5s (43/43) FINISHED                                                               docker:default
+ => [internal] load build definition from Dockerfile                                                         0.0s
+ => => transferring dockerfile: 6.51kB                                                                       0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:22.04                                              2.5s
+ => [internal] load .dockerignore                                                                            0.0s
+ => => transferring context: 74B                                                                             0.0s
+ => [internal] load build context                                                                            0.0s
+ => => transferring context: 351.83kB                                                                        0.0s
+ => CACHED [ 1/38] FROM docker.io/library/ubuntu:22.04@sha256:01a3ee0b5e413cefaaffc6abe68c9c37879ae3cced56a  0.0s
+ => [ 2/38] RUN apt-get update && apt-get upgrade -y && apt-get install -y wget nano rsync curl gnupg2 jq   44.7s
+ => [ 3/38] RUN echo "deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-18 main" >> /etc/apt/sources.list  1.4s 
+ => [ 4/38] RUN if [ "linux/amd64" = "linux/arm64" ]; then       GNU_TOOLCHAIN=https://developer.arm.com/-  76.6s 
+ => [ 5/38] RUN apt-get update && apt-get install -y     make     llvm-18     gcc-10     binutils     val  123.9s 
+ => [ 6/38] RUN apt-get update && apt-get install -y     doxygen     graphviz                               31.7s 
+ => [ 7/38] RUN apt-get update && apt-get install -y     libncurses5                                         7.0s 
+ => [ 8/38] RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100                           0.3s 
+ => [ 9/38] RUN update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-10 100                        0.3s 
+ => [10/38] RUN apt-get update && apt-get install -y     python3     python3-pip     clang-format-18     c  24.4s 
+ => [11/38] RUN python3 -m pip install --upgrade pip                                                         2.9s 
+ => [12/38] COPY py/bitbox02 /tmp/bitbox02                                                                   0.1s 
+ => [13/38] RUN python3 -m pip install /tmp/bitbox02                                                         9.4s 
+ => [14/38] RUN rm -r /tmp/bitbox02                                                                          0.4s 
+ => [15/38] COPY py/requirements.txt /tmp                                                                    0.1s 
+ => [16/38] RUN python3 -m pip install --upgrade --requirement /tmp/requirements.txt                         4.9s 
+ => [17/38] RUN rm /tmp/requirements.txt                                                                     0.3s 
+ => [18/38] RUN python3 -m pip install --upgrade     pylint==3.3.7     pylint-protobuf==0.22.0     black==  13.1s 
+ => [19/38] RUN python3 -m pip install --upgrade     setuptools==41.2.0     wheel==0.33.6     twine==1.15.0  5.7s 
+ => [20/38] RUN if [ "linux/amd64" = "linux/arm64" ]; then       PROTOC_URL=https://github.com/protocolbuff  3.5s 
+ => [21/38] RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1                      0.3s 
+ => [22/38] RUN apt-get update && apt-get install -y     bash-completion                                     6.5s 
+ => [23/38] RUN python3 -m pip install gcovr                                                                 4.6s 
+ => [24/38] RUN mkdir -p /opt/go_dist &&     curl https://dl.google.com/go/go1.19.3.linux-amd64.tar.gz | t  26.0s 
+ => [25/38] RUN cd /opt && wget https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.1  3.8s 
+ => [26/38] COPY src/rust/rust-toolchain.toml /tmp/rust-toolchain.toml                                       0.1s 
+ => [27/38] RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | CARGO_HOME=/opt/cargo sh -s --  59.7s 
+ => [28/38] RUN rustup target add thumbv7em-none-eabi                                                        7.4s 
+ => [29/38] RUN rustup component add rustfmt                                                                 0.7s 
+ => [30/38] RUN rustup component add clippy                                                                  0.7s 
+ => [31/38] RUN rustup component add rust-src                                                                2.5s 
+ => [32/38] RUN CARGO_HOME=/opt/cargo cargo install cbindgen --version 0.28.0 --locked                      56.2s 
+ => [33/38] RUN CARGO_HOME=/opt/cargo cargo install bindgen-cli --version 0.71.1 --locked                   54.8s 
+ => [34/38] RUN cp "$(rustc --print=sysroot)/lib/rustlib/src/rust/library/Cargo.lock" "$(rustc --print=sysr  0.5s 
+ => [35/38] RUN chmod 777 $(rustc --print=sysroot)/lib/rustlib/src/rust/library/test/Cargo.lock              0.3s 
+ => [36/38] COPY tools/prost-build-proto prost-build-proto                                                   0.1s 
+ => [37/38] RUN CARGO_HOME=/opt/cargo cargo install --path prost-build-proto --locked                       25.6s 
+ => [38/38] RUN rm -rf /var/lib/apt/lists/*                                                                  0.3s 
+ => exporting to image                                                                                      59.6s 
+ => => exporting layers                                                                                     59.6s 
+ => => writing image sha256:b162912267e587c2ea8ee749c05667333753a15d62aa9a47ed0f5aecc17d2521                 0.0s 
+ => => naming to docker.io/library/bitbox02-firmware                                                         0.0s 
+mkdir -p build                                                                                                    
+cd build && cmake -DCMAKE_TOOLCHAIN_FILE=arm.cmake ..
+-- Setting build type to 'RelWithDebInfo' as none was specified.
+-- The C compiler identification is GNU 14.2.1
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/local/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- size: /usr/local/bin/arm-none-eabi-size arm-none-eabi-size
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found Git: /usr/bin/git (found version "2.34.1") 
+-- 
+
+=============================================
+--             - General -
+-- Firmware version:       v9.23.0
+-- Firmware v. (git):      v9.23.0
+-- Firmware-btc version:   v9.23.0
+-- Firmware-btc v. (git):  v9.23.0
+-- Bootloader version:     v1.1.1-pre+1d844fdfa4
+-- Bootloader v. (git):    v1.1.1+1
+-- CMake version:          3.22.1
+-- System:                 Generic
+-- Processor:              arm
+--              - Build -
+-- Compiler version:       GNU 14.2.1
+-- Compiler:               /usr/local/bin/arm-none-eabi-gcc
+-- Compiler cache:         
+-- Linker:                 /usr/local/bin/arm-none-eabi-ld
+-- Archiver:               /usr/local/bin/arm-none-eabi-ar
+-- Default CFLAGS:              -std=c11 -pipe -mcpu=cortex-m4 -mthumb -mlong-calls     -mfloat-abi=softfp -mfpu=fpv4-sp-d16 -fomit-frame-pointer -D__SAMD51J20A__      -ffunction-sections -fdata-sections -Os -ggdb -DNDEBUG
+-- Default EXE LDFLAGS:    
+--             - Options -
+-- Build type:             RELWITHDEBINFO
+-- Hardware version:       
+-- Verbose:                FALSE
+-- Coverage flags:         OFF
+-- 
+=============================================
+
+
+-- Found Doxygen: /usr/bin/doxygen (found version "1.9.1") found components: doxygen dot 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /bb02/build
+make -C py/bitbox02
+make[1]: Entering directory '/bb02/py/bitbox02'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/bb02/py/bitbox02'
+make -C build firmware-btc.elf
+make[1]: Entering directory '/bb02/build'
+make[2]: Entering directory '/bb02/build'
+make[3]: Entering directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[  0%] Building Rust library libfirmware-btc_rust_c.a
+   Compiling compiler_builtins v0.1.140
+   Compiling core v0.0.0 (/opt/rustup/toolchains/1.85.1-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling version_check v0.9.5
+   Compiling typenum v1.16.0
+   Compiling generic-array v0.14.7
+   Compiling cc v1.0.79
+   Compiling autocfg v1.0.1
+   Compiling bitcoin-internals v0.3.0
+   Compiling semver v1.0.20
+   Compiling num-traits v0.2.19
+   Compiling hex_lit v0.1.1
+   Compiling bitcoin v0.32.2
+   Compiling proc-macro2 v1.0.82
+   Compiling rustc_version v0.4.0
+   Compiling secp256k1-sys v0.10.0
+   Compiling unicode-ident v1.0.5
+   Compiling bitbox02-sys v0.1.0 (/bb02/src/rust/bitbox02-sys)
+   Compiling curve25519-dalek v4.1.3
+   Compiling bitbox02 v0.1.0 (/bb02/src/rust/bitbox02)
+   Compiling anyhow v1.0.31
+   Compiling quote v1.0.36
+   Compiling either v1.5.3
+   Compiling itertools v0.10.3
+   Compiling syn v2.0.64
+   Compiling ctaes v0.1.0
+   Compiling bitbox02-rust v0.1.0 (/bb02/src/rust/bitbox02-rust)
+   Compiling prost-derive v0.13.1
+   Compiling rustc-std-workspace-core v1.99.0 (/opt/rustup/toolchains/1.85.1-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/rustc-std-workspace-core)
+   Compiling alloc v0.0.0 (/opt/rustup/toolchains/1.85.1-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc)
+   Compiling zeroize v1.7.0
+   Compiling subtle v2.4.1
+   Compiling const-oid v0.9.6
+   Compiling arrayvec v0.7.4
+   Compiling rand_core v0.6.4
+   Compiling cfg-if v1.0.0
+   Compiling hex-conservative v0.2.1
+   Compiling bitcoin-io v0.1.2
+   Compiling bitcoin_hashes v0.14.0
+   Compiling bitcoin-units v0.1.1
+   Compiling crypto-common v0.1.6
+   Compiling block-buffer v0.10.3
+   Compiling num-integer v0.1.46
+   Compiling digest v0.10.7
+   Compiling num-bigint v0.4.6
+   Compiling inout v0.1.3
+   Compiling base58ck v0.1.0
+   Compiling secp256k1 v0.29.0
+   Compiling bech32 v0.11.0
+   Compiling cipher v0.4.4
+   Compiling hmac v0.12.1
+   Compiling sha2 v0.10.9
+   Compiling universal-hash v0.5.1
+   Compiling ff v0.13.0
+   Compiling der v0.7.9
+   Compiling opaque-debug v0.3.0
+   Compiling util v0.1.0 (/bb02/src/rust/util)
+   Compiling base16ct v0.2.0
+   Compiling sec1 v0.7.3
+   Compiling poly1305 v0.8.0
+   Compiling group v0.13.0
+   Compiling chacha20 v0.9.1
+   Compiling aead v0.5.2
+   Compiling crypto-bigint v0.5.5
+   Compiling hex v0.4.3
+   Compiling chacha20poly1305 v0.10.1
+   Compiling noise-protocol v0.2.0
+   Compiling x25519-dalek v2.0.0
+   Compiling noise-rust-crypto v0.6.2
+   Compiling rfc6979 v0.4.0
+   Compiling signature v2.2.0
+   Compiling bytes v1.0.0
+   Compiling bitbox02-noise v0.1.0 (/bb02/src/rust/bitbox02-noise)
+   Compiling binascii v0.1.4
+   Compiling prost v0.13.1
+   Compiling elliptic-curve v0.13.8
+   Compiling primeorder v0.13.6
+   Compiling ecdsa v0.16.9
+   Compiling miniscript v12.2.0
+   Compiling streaming-silent-payments v0.1.0 (/bb02/src/rust/streaming-silent-payments)
+   Compiling p256 v0.13.2
+   Compiling bitbox-aes v0.1.0 (/bb02/src/rust/bitbox-aes)
+   Compiling bitbox02-rust-c v0.1.0 (/bb02/src/rust/bitbox02-rust-c)
+    Finished `release` profile [optimized + debuginfo] target(s) in 55.29s
+make[4]: Leaving directory '/bb02/build'
+[  0%] Built target firmware-btc-rust-target
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[  0%] Creating directories for 'libwally-core'
+[  0%] No download step for 'libwally-core'
+[  0%] No update step for 'libwally-core'
+[  0%] No patch step for 'libwally-core'
+[  0%] Performing configure step for 'libwally-core'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'tools/build-aux'.
+libtoolize: copying file 'tools/build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'tools/build-aux/m4'.
+libtoolize: copying file 'tools/build-aux/m4/libtool.m4'
+libtoolize: copying file 'tools/build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'tools/build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'tools/build-aux/m4/ltversion.m4'
+libtoolize: copying file 'tools/build-aux/m4/lt~obsolete.m4'
+configure.ac:39: installing 'tools/build-aux/ar-lib'
+configure.ac:38: installing 'tools/build-aux/compile'
+configure.ac:7: installing 'tools/build-aux/config.guess'
+configure.ac:7: installing 'tools/build-aux/config.sub'
+configure.ac:34: installing 'tools/build-aux/install-sh'
+configure.ac:34: installing 'tools/build-aux/missing'
+src/Makefile.am: installing 'tools/build-aux/depcomp'
+parallel-tests: installing 'tools/build-aux/test-driver'
+libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'build-aux'.
+libtoolize: copying file 'build-aux/ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'build-aux/m4'.
+libtoolize: copying file 'build-aux/m4/libtool.m4'
+libtoolize: copying file 'build-aux/m4/ltoptions.m4'
+libtoolize: copying file 'build-aux/m4/ltsugar.m4'
+libtoolize: copying file 'build-aux/m4/ltversion.m4'
+libtoolize: copying file 'build-aux/m4/lt~obsolete.m4'
+configure.ac:39: installing 'build-aux/ar-lib'
+configure.ac:37: installing 'build-aux/compile'
+configure.ac:24: installing 'build-aux/config.guess'
+configure.ac:24: installing 'build-aux/config.sub'
+configure.ac:27: installing 'build-aux/install-sh'
+configure.ac:27: installing 'build-aux/missing'
+Makefile.am: installing 'build-aux/depcomp'
+parallel-tests: installing 'build-aux/test-driver'
+configure: WARNING: you should use --build, --host, --target
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-none-eabi
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-none-eabi-strip... arm-none-eabi-strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for arm-none-eabi-gcc... arm-none-eabi-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether arm-none-eabi-gcc accepts -g... yes
+checking for arm-none-eabi-gcc option to enable C11 features... none needed
+checking whether arm-none-eabi-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-none-eabi-gcc... gcc3
+checking for arm-none-eabi-ar... arm-none-eabi-ar
+checking the archiver (arm-none-eabi-ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by arm-none-eabi-gcc... /usr/local/arm-none-eabi/bin/ld
+checking if the linker (/usr/local/arm-none-eabi/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/local/bin/arm-none-eabi-nm -B
+checking the name lister (/usr/local/bin/arm-none-eabi-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-none-eabi format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/local/arm-none-eabi/bin/ld option to reload object files... -r
+checking for arm-none-eabi-objdump... arm-none-eabi-objdump
+checking how to recognize dependent libraries... unknown
+checking for arm-none-eabi-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-none-eabi-ar... (cached) arm-none-eabi-ar
+checking for archiver @FILE support... @
+checking for arm-none-eabi-strip... (cached) arm-none-eabi-strip
+checking for arm-none-eabi-ranlib... arm-none-eabi-ranlib
+checking command to parse /usr/local/bin/arm-none-eabi-nm -B output from arm-none-eabi-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for arm-none-eabi-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... no
+checking for objdir... .libs
+checking if arm-none-eabi-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-none-eabi-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-none-eabi-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-none-eabi-gcc static flag -static works... yes
+checking if arm-none-eabi-gcc supports -c -o file.o... yes
+checking if arm-none-eabi-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-none-eabi-gcc linker (/usr/local/arm-none-eabi/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... no
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... no
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking for gsed... no
+checking whether byte ordering is bigendian... no
+checking for inline... inline
+checking for size_t... yes
+checking for uint64_t... yes
+checking for uint32_t... yes
+checking for uint16_t... yes
+checking for uint8_t... yes
+checking whether C compiler accepts -O0... yes
+checking whether C compiler accepts -O2... yes
+checking for _FORTIFY_SOURCE defined... no
+checking whether C compiler accepts -D_FORTIFY_SOURCE=2... yes
+checking whether C compiler accepts -fstack-protector-strong... yes
+checking whether C compiler accepts -DNDEBUG=1... yes
+checking whether the linker accepts -O2... yes
+checking whether the linker accepts -Wl,-z,relro... yes
+checking whether C compiler accepts -DBUILD_ELEMENTS=1... yes
+checking whether C compiler accepts -flax-vector-conversions... yes
+checking whether C compiler accepts -fno-strict-aliasing... yes
+checking whether C compiler accepts -fno-builtin... yes
+checking whether C compiler accepts -Wformat-nonliteral... yes
+checking whether C compiler accepts -Wformat-security... yes
+checking whether C compiler accepts -Wformat... yes
+checking whether C compiler accepts -Wstrict-prototypes... yes
+checking whether C compiler accepts -Wshadow... yes
+checking whether C compiler accepts -Wnested-externs... yes
+checking whether C compiler accepts -Wcast-align... yes
+checking whether C compiler accepts -Wpedantic... yes
+checking whether C compiler accepts -Wextra... yes
+checking whether C compiler accepts -Wall... yes
+checking whether C compiler accepts -D_DEFAULT_SOURCE=1... yes
+checking whether C compiler accepts -Wno-unused-function... yes
+checking whether C compiler accepts -Wno-long-long... yes
+checking whether C compiler accepts -Wno-overlength-strings... yes
+checking whether C compiler accepts -Wno-variadic-macros... yes
+checking whether C compiler accepts -Wno-unused-parameter... yes
+checking whether C compiler accepts -Wno-shadow... yes
+checking whether C compiler accepts -Wno-missing-field-initializers... yes
+checking whether C compiler accepts -fvisibility=hidden... yes
+checking for memset_s... no
+checking for explicit_bzero... yes
+checking for explicit_memset... no
+checking whether we can use inline asm code... yes
+checking for byteswap.h... no
+checking for sys/mman.h... no
+checking how to run the C preprocessor... arm-none-eabi-gcc -E
+checking whether arm-none-eabi-gcc is Clang... no
+checking whether pthreads work with "-pthread" and "-lpthread"... no
+checking whether pthreads work with -pthread... no
+checking whether pthreads work with -pthreads... no
+checking for the pthreads library -lpthreads... no
+checking whether pthreads work without any flags... no
+checking whether pthreads work with -Kthread... no
+checking whether pthreads work with -pthread... no
+checking whether pthreads work with -pthreads... no
+checking whether pthreads work with -mthreads... no
+checking for the pthreads library -lpthread... no
+checking whether pthreads work with --thread-safe... no
+checking whether pthreads work with -mt... no
+checking for pthread-config... no
+checking for arm-none-eabi-pkg-config... no
+checking for pkg-config... /usr/bin/pkg-config
+configure: WARNING: using cross tools not prefixed with host triplet
+checking pkg-config is at least version 0.9.0... yes
+checking for python... /usr/bin/python
+checking for a version of Python >= '2.1.0'... yes
+checking for a version of Python >= '2.7.0'... yes
+checking for the distutils Python package... yes
+checking for Python include path... <string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-I/usr/include/python3.10
+checking for Python library path... <stdin>:4: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<stdin>:4: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<stdin>:3: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<stdin>:3: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+<stdin>:2: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<stdin>:2: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-L/usr/lib/x86_64-linux-gnu -lpython3.10
+checking for Python site-packages path... <string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+/usr/lib/python3/dist-packages
+checking python extra libraries... <string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-lcrypt -ldl  -lm -lm
+checking python extra linking flags... <string>:1: DeprecationWarning: The distutils package is deprecated and slated for removal in Python 3.12. Use setuptools or check PEP 632 for potential alternatives
+<string>:1: DeprecationWarning: The distutils.sysconfig module is deprecated, use sysconfig instead
+-Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions
+checking consistency of all components of python development environment... no
+
+  Could not link test program to Python. Maybe the main Python library has been
+  installed in some non-standard library path. If so, pass it to configure,
+  via the LIBS environment variable.
+  Example: ./configure LIBS="-L/usr/non-standard-path/python/lib"
+  ============================================================================
+   ERROR!
+   You probably have to install the development version of the Python package
+   for your distribution.  The exact name of this package varies among them.
+  ============================================================================
+	   
+checking for swig... no
+configure: WARNING: cannot find 'swig' program. You should look at http://www.swig.org
+checking for java... no
+checking for javac... no
+checking for jar... no
+checking whether C compiler accepts -DSECP256K1_STATIC=1... yes
+checking that generated files are newer than configure... done
+=== configuring in src/secp256k1 (/bb02/build/external/libwally-core/src/libwally-core-build/src/secp256k1)
+configure: running /bin/bash /bb02/external/libwally-core/src/secp256k1/configure '--prefix=/usr/local' --disable-option-checking  '--host=arm-none-eabi' '--build=x86_64-linux-gnu' '' '--enable-static' '--disable-shared' '--disable-tests' '--with-ecmult-window=2' '--with-ecmult-gen-precision=2' '--enable-ecmult-static-precomputation' '--enable-module-schnorrsig' '--enable-module-ecdsa-adaptor' 'build_alias=x86_64-linux-gnu' 'host_alias=arm-none-eabi' 'target_alias=' 'CFLAGS=          -std=c11 -pipe -mcpu=cortex-m4 -mthumb -mlong-calls       -fomit-frame-pointer -D__SAMD51J20A__      -ffunction-sections -fdata-sections -Wall -Wextra -Wpedantic -Wmissing-prototypes -Werror-implicit-function-declaration  -Wpointer-arith -Wunused -Wfloat-equal -Wshadow -Wbad-function-cast -Wformat=2 -Wformat-signedness -Wwrite-strings  -Wmissing-declarations -Wmissing-format-attribute -Wpacked  -Wredundant-decls -Wnested-externs -Wmultichar -Winit-self  -Wold-style-definition -Wswitch-default -Wattributes  -Wdeprecated-declarations -Wcast-qual -Wstrict-prototypes -Wundef -Wmissing-include-dirs -Wno-cast-function-type -fstack-protector-strong -D_XOPEN_SOURCE=600 -Os -ggdb -DNDEBUG   -D_DEFAULT_SOURCE   -fno-strict-aliasing  -Wno-cast-qual -Wno-cast-align   -Wno-missing-prototypes -Wno-redundant-decls   -Wno-switch-default -Wno-missing-declarations   -Wno-array-bounds -Wno-unused-label -Wno-sign-compare -Wno-type-limits ' 'LDFLAGS=--specs=nosys.specs      -mcpu=cortex-m4 -mthumb  -Wl,--gc-sections      -L/bb02/external/lib/ssp' '--disable-shared' '--enable-static' '--with-pic' '--enable-experimental' '--enable-module-ecdh' '--enable-module-recovery' '--enable-module-ecdsa-s2c' '--enable-module-rangeproof' '--enable-module-surjectionproof' '--enable-module-whitelist' '--enable-module-generator' '--enable-module-extrakeys' '--enable-module-schnorrsig' '--disable-tests' '--enable-exhaustive-tests=no' '--enable-benchmark=no' '--disable-dependency-tracking' '--with-asm=auto' '--srcdir=/bb02/external/libwally-core/src/secp256k1' --cache-file=/dev/null
+configure: WARNING: you should use --build, --host, --target
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... arm-none-eabi
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for arm-none-eabi-strip... arm-none-eabi-strip
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... no
+checking for mawk... mawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for arm-none-eabi-gcc... arm-none-eabi-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... yes
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether arm-none-eabi-gcc accepts -g... yes
+checking for arm-none-eabi-gcc option to enable C11 features... none needed
+checking whether arm-none-eabi-gcc understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of arm-none-eabi-gcc... none
+checking dependency style of arm-none-eabi-gcc... none
+checking for arm-none-eabi-ar... arm-none-eabi-ar
+checking the archiver (arm-none-eabi-ar) interface... ar
+checking how to print strings... printf
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by arm-none-eabi-gcc... /usr/local/arm-none-eabi/bin/ld
+checking if the linker (/usr/local/arm-none-eabi/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/local/bin/arm-none-eabi-nm -B
+checking the name lister (/usr/local/bin/arm-none-eabi-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to arm-none-eabi format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/local/arm-none-eabi/bin/ld option to reload object files... -r
+checking for arm-none-eabi-objdump... arm-none-eabi-objdump
+checking how to recognize dependent libraries... unknown
+checking for arm-none-eabi-dlltool... no
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for arm-none-eabi-ar... arm-none-eabi-ar
+checking for archiver @FILE support... @
+checking for arm-none-eabi-strip... (cached) arm-none-eabi-strip
+checking for arm-none-eabi-ranlib... arm-none-eabi-ranlib
+checking command to parse /usr/local/bin/arm-none-eabi-nm -B output from arm-none-eabi-gcc object... ok
+checking for sysroot... no
+checking for a working dd... /usr/bin/dd
+checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+checking for arm-none-eabi-mt... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for stdio.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for strings.h... yes
+checking for sys/stat.h... yes
+checking for sys/types.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... no
+checking for objdir... .libs
+checking if arm-none-eabi-gcc supports -fno-rtti -fno-exceptions... no
+checking for arm-none-eabi-gcc option to produce PIC... -fPIC -DPIC
+checking if arm-none-eabi-gcc PIC flag -fPIC -DPIC works... yes
+checking if arm-none-eabi-gcc static flag -static works... yes
+checking if arm-none-eabi-gcc supports -c -o file.o... yes
+checking if arm-none-eabi-gcc supports -c -o file.o... (cached) yes
+checking whether the arm-none-eabi-gcc linker (/usr/local/arm-none-eabi/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... no
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... no
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking if arm-none-eabi-gcc supports -Werror... yes
+checking if arm-none-eabi-gcc supports -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef... yes
+checking if arm-none-eabi-gcc supports -Wno-overlength-strings... yes
+checking if arm-none-eabi-gcc supports -Wall... yes
+checking if arm-none-eabi-gcc supports -Wno-unused-function... yes
+checking if arm-none-eabi-gcc supports -Wextra... yes
+checking if arm-none-eabi-gcc supports -Wcast-align... yes
+checking if arm-none-eabi-gcc supports -Wcast-align=strict... yes
+checking if arm-none-eabi-gcc supports -Wconditional-uninitialized... no
+checking if arm-none-eabi-gcc supports -Wreserved-identifier... no
+checking if arm-none-eabi-gcc supports -fvisibility=hidden... yes
+checking for valgrind support... 
+checking for __builtin_popcount... no
+checking for  __builtin_clzll... no
+checking for x86_64 assembly availability... no
+configure: ******
+configure: WARNING: experimental build
+configure: Experimental features do not have stable APIs or properties, and may not be safe for production use.
+configure: ******
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating libsecp256k1.pc
+config.status: executing depfiles commands
+config.status: executing libtool commands
+
+Build Options:
+  with external callbacks = no
+  with benchmarks         = no
+  with tests              = no
+  with ctime tests        = no
+  with coverage           = no
+  with examples           = no
+  module ecdh             = yes
+  module recovery         = yes
+  module extrakeys        = yes
+  module schnorrsig       = yes
+  module ellswift         = yes
+  module generator        = yes
+  module rangeproof       = yes
+  module surjectionproof  = yes
+  module whitelist        = yes
+  module musig            = no
+  module ecdsa-s2c        = yes
+  module ecdsa-adaptor    = yes
+  module bppp             = no
+
+  asm                     = no
+  ecmult window size      = 2
+  ecmult gen prec. bits   = 2
+
+  valgrind                = no
+  CC                      = arm-none-eabi-gcc
+  CPPFLAGS                = 
+  SECP_CFLAGS             = -O2  -std=c89 -pedantic -Wno-long-long -Wnested-externs -Wshadow -Wstrict-prototypes -Wundef -Wno-overlength-strings -Wall -Wno-unused-function -Wextra -Wcast-align -Wcast-align=strict -fvisibility=hidden 
+  CFLAGS                  =           -std=c11 -pipe -mcpu=cortex-m4 -mthumb -mlong-calls       -fomit-frame-pointer -D__SAMD51J20A__      -ffunction-sections -fdata-sections -Wall -Wextra -Wpedantic -Wmissing-prototypes -Werror-implicit-function-declaration  -Wpointer-arith -Wunused -Wfloat-equal -Wshadow -Wbad-function-cast -Wformat=2 -Wformat-signedness -Wwrite-strings  -Wmissing-declarations -Wmissing-format-attribute -Wpacked  -Wredundant-decls -Wnested-externs -Wmultichar -Winit-self  -Wold-style-definition -Wswitch-default -Wattributes  -Wdeprecated-declarations -Wcast-qual -Wstrict-prototypes -Wundef -Wmissing-include-dirs -Wno-cast-function-type -fstack-protector-strong -D_XOPEN_SOURCE=600 -Os -ggdb -DNDEBUG   -D_DEFAULT_SOURCE   -fno-strict-aliasing  -Wno-cast-qual -Wno-cast-align   -Wno-missing-prototypes -Wno-redundant-decls   -Wno-switch-default -Wno-missing-declarations   -Wno-array-bounds -Wno-unused-label -Wno-sign-compare -Wno-type-limits 
+  LDFLAGS                 = --specs=nosys.specs      -mcpu=cortex-m4 -mthumb  -Wl,--gc-sections      -L/bb02/external/lib/ssp
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating src/Makefile
+config.status: creating src/wallycore.pc
+config.status: creating src/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+[  0%] Performing build step for 'libwally-core'
+make[5]: Entering directory '/bb02/build/external/libwally-core/src/libwally-core-build'
+Making all in src
+make[6]: Entering directory '/bb02/build/external/libwally-core/src/libwally-core-build/src'
+make[7]: Entering directory '/bb02/build/external/libwally-core/src/libwally-core-build/src'
+Making all in secp256k1
+make[8]: Entering directory '/bb02/build/external/libwally-core/src/libwally-core-build/src/secp256k1'
+make[9]: Entering directory '/bb02/build/external/libwally-core/src/libwally-core-build/src/secp256k1'
+  CC       src/libsecp256k1_la-secp256k1.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult.lo
+  CC       src/libsecp256k1_precomputed_la-precomputed_ecmult_gen.lo
+  CCLD     libsecp256k1_precomputed.la
+  CCLD     libsecp256k1.la
+make[9]: Leaving directory '/bb02/build/external/libwally-core/src/libwally-core-build/src/secp256k1'
+make[8]: Leaving directory '/bb02/build/external/libwally-core/src/libwally-core-build/src/secp256k1'
+make[8]: Entering directory '/bb02/build/external/libwally-core/src/libwally-core-build/src'
+  CC       libwallycore_la-address.lo
+  CC       libwallycore_la-anti_exfil.lo
+  CC       libwallycore_la-aes.lo
+  CC       libwallycore_la-base_58.lo
+  CC       libwallycore_la-base_64.lo
+  CC       libwallycore_la-bip32.lo
+  CC       libwallycore_la-bip38.lo
+  CC       libwallycore_la-bip39.lo
+  CC       libwallycore_la-bip85.lo
+  CC       libwallycore_la-bech32.lo
+  CC       libwallycore_la-coins.lo
+  CC       libwallycore_la-descriptor.lo
+  CC       libwallycore_la-ecdh.lo
+  CC       libwallycore_la-elements.lo
+  CC       libwallycore_la-blech32.lo
+  CC       libwallycore_la-hex_.lo
+  CC       libwallycore_la-hmac.lo
+  CC       libwallycore_la-internal.lo
+  CC       libwallycore_la-map.lo
+  CC       libwallycore_la-mnemonic.lo
+  CC       libwallycore_la-pbkdf2.lo
+  CC       libwallycore_la-psbt.lo
+  CC       libwallycore_la-pullpush.lo
+  CC       libwallycore_la-script.lo
+  CC       libwallycore_la-scrypt.lo
+  CC       libwallycore_la-sign.lo
+  CC       libwallycore_la-symmetric.lo
+  CC       libwallycore_la-transaction.lo
+  CC       libwallycore_la-wif.lo
+  CC       libwallycore_la-wordlist.lo
+  CC       ccan/ccan/base64/libwallycore_la-base64.lo
+/bb02/external/libwally-core/src/ccan/ccan/base64/base64.c:150:71: warning: argument 2 of type 'char[3]' with mismatched bound [-Warray-parameter=]
+  150 | ssize_t base64_decode_tail_using_maps(const base64_maps_t *maps, char dest[3],
+      |                                                                  ~~~~~^~~~~~~
+In file included from /bb02/external/libwally-core/src/ccan/ccan/base64/base64.c:2:
+/bb02/external/libwally-core/src/ccan/ccan/base64/base64.h:121:72: note: previously declared as 'char *'
+  121 | ssize_t base64_decode_tail_using_maps(const base64_maps_t *maps, char *dest,
+      |                                                                  ~~~~~~^~~~
+  CC       ccan/ccan/crypto/ripemd160/libwallycore_la-ripemd160.lo
+  CC       ccan/ccan/crypto/sha256/libwallycore_la-sha256.lo
+  CC       ccan/ccan/crypto/sha512/libwallycore_la-sha512.lo
+  CC       ccan/ccan/str/hex/libwallycore_la-hex.lo
+  CCLD     libwallycore.la
+make[8]: Leaving directory '/bb02/build/external/libwally-core/src/libwally-core-build/src'
+make[7]: Leaving directory '/bb02/build/external/libwally-core/src/libwally-core-build/src'
+make[6]: Leaving directory '/bb02/build/external/libwally-core/src/libwally-core-build/src'
+make[5]: Leaving directory '/bb02/build/external/libwally-core/src/libwally-core-build'
+[  0%] Performing install step for 'libwally-core'
+[  0%] Completed 'libwally-core'
+make[4]: Leaving directory '/bb02/build'
+[  0%] Built target libwally-core
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[  0%] Building C object external/CMakeFiles/samd51a-ds.dir/samd51a-ds/gcc/system_samd51.c.obj
+[  0%] Building C object external/CMakeFiles/samd51a-ds.dir/samd51a-ds/gcc/gcc/startup_samd51.c.obj
+[  3%] Linking C static library ../lib/libsamd51a-ds.a
+make[4]: Leaving directory '/bb02/build'
+[  3%] Built target samd51a-ds
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[  3%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/utils/src/utils_syscalls.c.obj
+[  3%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/utils/src/utils_list.c.obj
+[  3%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_atomic.c.obj
+[  3%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_gpio.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_init.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_delay.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_timer.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_usb_device.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_rand_sync.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_flash.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_pac.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_io.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_sha_sync.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/systick/hpl_systick.c.obj
+[  7%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/src/hal_usart_async.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hal/utils/src/utils_ringbuffer.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/gclk/hpl_gclk.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/oscctrl/hpl_oscctrl.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/mclk/hpl_mclk.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/osc32kctrl/hpl_osc32kctrl.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/core/hpl_init.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/core/hpl_core_m4.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/spi/spi_lite.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/usb/hpl_usb.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/rtc/hpl_rtc.c.obj
+[ 11%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/sercom/hpl_sercom.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/trng/hpl_trng.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/nvmctrl/hpl_nvmctrl.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/icm/hpl_icm.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/hpl/pac/hpl_pac.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/usb/usb_protocol.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers-min.dir/asf4-drivers/usb/device/usbdc.c.obj
+[ 15%] Linking C static library ../lib/libasf4-drivers-min.a
+make[4]: Leaving directory '/bb02/build'
+[ 15%] Built target asf4-drivers-min
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[ 15%] Building C object external/CMakeFiles/asf4-drivers.dir/asf4-drivers/hal/src/hal_mci_sync.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers.dir/asf4-drivers/hal/src/hal_i2c_m_sync.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers.dir/asf4-drivers/hpl/sdhc/hpl_sdhc.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers.dir/asf4-drivers/hpl/sercom/hpl_sercom.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers.dir/asf4-drivers/sd_mmc/sd_mmc.c.obj
+[ 15%] Building C object external/CMakeFiles/asf4-drivers.dir/asf4-drivers/diskio/sdmmc_diskio.c.obj
+[ 15%] Linking C static library ../lib/libasf4-drivers.a
+make[4]: Leaving directory '/bb02/build'
+[ 15%] Built target asf4-drivers
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/atca_cfgs.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/atca_command.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/atca_device.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/atca_iface.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/hal/atca_hal.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/hal/hal_timer_start.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/atca_basic.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/atca_debug.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_basic.c.obj
+[ 15%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_command.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_execution.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_counter.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_gendig.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_nonce.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_checkmac.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_info.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_derivekey.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_random.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_selftest.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_read.c.obj
+[ 19%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_privwrite.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_verify.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_write.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_updateextra.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_lock.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_kdf.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_genkey.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/calib/calib_sign.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/host/atca_host.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/crypto/hashes/sha2_routines.c.obj
+[ 23%] Building C object external/CMakeFiles/cryptoauthlib.dir/cryptoauthlib/lib/crypto/atca_crypto_sw_sha2.c.obj
+[ 23%] Linking C static library ../lib/libcryptoauthlib.a
+make[4]: Leaving directory '/bb02/build'
+[ 23%] Built target cryptoauthlib
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[ 23%] Building C object external/CMakeFiles/embedded-swd.dir/embedded-swd/dap.c.obj
+[ 23%] Building C object external/CMakeFiles/embedded-swd.dir/embedded-swd/dap_target.c.obj
+[ 23%] Linking C static library ../lib/libembedded-swd.a
+make[4]: Leaving directory '/bb02/build'
+[ 23%] Built target embedded-swd
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[ 23%] Building C object external/CMakeFiles/fatfs.dir/fatfs/source/ff.c.obj
+[ 23%] Building C object external/CMakeFiles/fatfs.dir/fatfs/source/ffunicode.c.obj
+[ 23%] Linking C static library ../lib/libfatfs.a
+make[4]: Leaving directory '/bb02/build'
+[ 23%] Built target fatfs
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[ 23%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/cmd/optiga_cmd.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/common/optiga_lib_common.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/common/optiga_lib_logger.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/ifx_i2c/ifx_i2c.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/ifx_i2c/ifx_i2c_config.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/ifx_i2c/ifx_i2c_data_link_layer.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/ifx_i2c/ifx_i2c_physical_layer.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/ifx_i2c/ifx_i2c_presentation_layer.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/ifx_i2c/ifx_i2c_transport_layer.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/comms/optiga_comms_ifx_i2c.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/crypt/optiga_crypt.c.obj
+[ 26%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/src/util/optiga_util.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/extras/pal/pal_crypt_mbedtls.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/aes.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/aesni.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/arc4.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/aria.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/asn1parse.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/asn1write.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/base64.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/bignum.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/blowfish.c.obj
+[ 30%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/camellia.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ccm.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/certs.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/chacha20.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/chachapoly.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/cipher.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/cipher_wrap.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/cmac.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/constant_time.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ctr_drbg.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/debug.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/des.c.obj
+[ 34%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/dhm.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ecdh.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ecdsa.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ecjpake.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ecp.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ecp_curves.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/entropy.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/entropy_poll.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/error.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/gcm.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/havege.c.obj
+[ 38%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/hkdf.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/hmac_drbg.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/md.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/md2.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/md4.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/md5.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/memory_buffer_alloc.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/mps_reader.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/mps_trace.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/net_sockets.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/nist_kw.c.obj
+[ 42%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/oid.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/padlock.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pem.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pk.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pk_wrap.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pkcs11.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pkcs12.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pkcs5.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pkparse.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/pkwrite.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/platform.c.obj
+[ 46%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/platform_util.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/poly1305.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_aead.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_cipher.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_client.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_driver_wrappers.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_ecp.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_hash.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_mac.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_rsa.c.obj
+[ 50%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_se.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_slot_management.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_crypto_storage.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/psa_its_file.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ripemd160.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/rsa.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/rsa_internal.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/sha1.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/sha256.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/sha512.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_cache.c.obj
+[ 53%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_ciphersuites.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_cli.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_cookie.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_msg.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_srv.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_ticket.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_tls.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/ssl_tls13_keys.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/threading.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/timing.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/version.c.obj
+[ 57%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/version_features.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509_create.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509_crl.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509_crt.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509_csr.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509write_crt.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/x509write_csr.c.obj
+[ 61%] Building C object external/CMakeFiles/optiga.dir/optiga-trust-m/external/mbedtls/library/xtea.c.obj
+[ 61%] Linking C static library ../lib/liboptiga.a
+make[4]: Leaving directory '/bb02/build'
+[ 61%] Built target optiga
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+[ 61%] Built target generate-protobufs
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+warning: please specify `--format-version` flag explicitly to avoid compatibility problems
+make[4]: Leaving directory '/bb02/build'
+[ 61%] Built target rust-cbindgen
+make[4]: Entering directory '/bb02/build'
+make[4]: Leaving directory '/bb02/build'
+make[4]: Entering directory '/bb02/build'
+[ 61%] Building C object src/CMakeFiles/firmware-btc.elf.dir/bip32.c.obj
+[ 61%] Building C object src/CMakeFiles/firmware-btc.elf.dir/firmware_main_loop.c.obj
+[ 61%] Building C object src/CMakeFiles/firmware-btc.elf.dir/keystore.c.obj
+[ 61%] Building C object src/CMakeFiles/firmware-btc.elf.dir/random.c.obj
+[ 61%] Building C object src/CMakeFiles/firmware-btc.elf.dir/hardfault.c.obj
+[ 61%] Building C object src/CMakeFiles/firmware-btc.elf.dir/util.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/sd.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/system.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/hww.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/bitbox02_smarteeprom.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/memory.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/memory_shared.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/mpu.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/nvmctrl.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/spi_mem.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/memory_spi.c.obj
+[ 65%] Building C object src/CMakeFiles/firmware-btc.elf.dir/memory/smarteeprom.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/salt.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/i2c_ecc.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/touch/gestures.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/reset.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/cipher/cipher.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/workflow/orientation_screen.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/queue.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/usb/usb_processing.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/screen.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/graphics/graphics.c.obj
+[ 69%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/graphics/lock_animation.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/ugui/ugui.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/font_a_9X9.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/font_a_11X10.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/font_a_11X12.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/font_a_13X14.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/font_a_15X16.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/font_a_17X18.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/monogram_5X9.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/password_9X9.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/fonts/password_11X12.c.obj
+[ 73%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/screen_saver.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/screen_stack.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/screen_process.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/event_handler.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/ui_util.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/trinary_choice.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/trinary_input_char.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/trinary_input_string.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/waiting.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/screensaver.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/entry_screen.c.obj
+[ 76%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/knight_rider.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/right_arrow.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/left_arrow.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/icon_button.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/confirm_gesture.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/label.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/confirm.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/confirm_button.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/keyboard_switch.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/orientation_arrows.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/info_centered.c.obj
+[ 80%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/lockscreen.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/menu.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/status.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/image.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/button.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/empty.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/progress.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/sdcard.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/ui_images.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/components/confirm_transaction.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/platform/platform_init.c.obj
+[ 84%] Building C object src/CMakeFiles/firmware-btc.elf.dir/platform/driver_init.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/oled/oled.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/oled/oled_writer.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/qtouch/qtouch.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/atecc/atecc.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/securechip/securechip.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_gpio.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_i2c.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_ifx_i2c_config.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_logger.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_os_datastore.c.obj
+[ 88%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_os_event.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_os_lock.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_os_timer.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/pal/pal_os_memory.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/optiga/optiga.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/communication_mode.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/da14531/crc.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/da14531/da14531.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/da14531/da14531_protocol.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/da14531/da14531_handler.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/uart.c.obj
+[ 92%] Building C object src/CMakeFiles/firmware-btc.elf.dir/common_main.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/firmware.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/sd_mmc/sd_mmc_start.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/sd_mmc/sd_mmc_ext.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/usb/class/hid/hid.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/usb/class/hid/hww/hid_hww.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/oled/sh1107.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/ui/oled/ssd1312.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/usb/usb.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/usb/usb_frame.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/usb/usb_packet.c.obj
+[ 96%] Building C object src/CMakeFiles/firmware-btc.elf.dir/u2f/u2f_packet.c.obj
+[100%] Linking C executable ../bin/firmware-btc.elf
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: /usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/libc_nano.a(libc_a-readr.o): in function `_read_r':
+readr.c:(.text._read_r+0x10): warning: _read is not implemented and will always fail
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: /usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/libc_nano.a(libc_a-readr.o): note: the message above does not take linker garbage collection into account
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: /usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/libc_nano.a(libc_a-writer.o): in function `_write_r':
+writer.c:(.text._write_r+0x10): warning: _write is not implemented and will always fail
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: /usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/softfp/libc_nano.a(libc_a-writer.o): note: the message above does not take linker garbage collection into account
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/thumb/v7e-m+fp/softfp/crtn.o: missing .note.GNU-stack section implies executable stack
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+/usr/local/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: ../bin/firmware-btc.elf has a LOAD segment with RWX permissions
+Memory region         Used Size  Region Size  %age Used
+             rom:      590648 B       864 KB     66.76%
+             ram:      209472 B       256 KB     79.91%
+         bkupram:           0 B         8 KB      0.00%
+            qspi:           0 B        16 MB      0.00%
+
+Generating binary firmware-btc.bin
+   text	   data	    bss	    dec	    hex	filename
+ 578500	  12148	 197400	 788048	  c0650	firmware-btc.elf
+make[4]: Leaving directory '/bb02/build'
+[100%] Built target firmware-btc.elf
+make[3]: Leaving directory '/bb02/build'
+make[2]: Leaving directory '/bb02/build'
+make[1]: Leaving directory '/bb02/build'
+firmware.bin created at:
+/home/dannybuntu/wsTest/bitbox02-firmware/temp/build/bin/firmware.bin
+or
+/home/dannybuntu/wsTest/bitbox02-firmware/temp/build/bin/firmware-btc.bin
+Hashes of
+signed download             b860ea0efc820a606f8e9680ef8224d1ac2d585772466b3613a794855a36972d  firmware-btc.v9.23.0.signed.bin
+signed download minus sig.  afbd137f2fc5c86573423fe943aaf364944cff94b9eed54d8cf01036947ba3b6  p_firmware-btc.bin
+built binary                afbd137f2fc5c86573423fe943aaf364944cff94b9eed54d8cf01036947ba3b6  temp/build/bin/firmware-btc.bin
+firmware as shown in device cfaf8129f8d6982e62c76c993f8367ddb3c04e081b37c186d51733a6f8b0e006
+                           (The latter is a double sha256 over version,
+                            firmware and padding)
