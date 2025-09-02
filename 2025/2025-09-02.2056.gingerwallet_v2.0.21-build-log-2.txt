@@ -1,0 +1,1913 @@
+ C:\Users\danny\builds> dotnet --version
+8.0.100
+PS C:\Users\danny\builds> ls
+
+
+    Directory: C:\Users\danny\builds
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          9/2/2025   6:15 PM         286507 2025-09-02.1633.gingerwallet-build-log.txt
+-a----          9/2/2025   3:30 PM          18493 Setup-GingerBuildEnvironment.ps1
+
+
+PS C:\Users\danny\builds> cd C:\Development\
+PS C:\Development> ls
+
+
+    Directory: C:\Development
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/2/2025   5:48 PM                GingerWallet
+
+
+PS C:\Development> cd .\GingerWallet\
+PS C:\Development\GingerWallet> git status
+HEAD detached at v2.0.21
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   WalletWasabi.Fluent.Desktop/packages.lock.json
+        modified:   WalletWasabi.Fluent/packages.lock.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Development\GingerWallet> git restore --source=HEAD -- "WalletWasabi.Fluent.Desktop/packages.lock.json"
+PS C:\Development\GingerWallet> git status
+HEAD detached at v2.0.21
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   WalletWasabi.Fluent/packages.lock.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Development\GingerWallet> git restore --source=HEAD -- "WalletWasabi.Fluent/packages.log.json"
+error: pathspec 'WalletWasabi.Fluent/packages.log.json' did not match any file(s) known to git
+PS C:\Development\GingerWallet> git status
+HEAD detached at v2.0.21
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   WalletWasabi.Fluent/packages.lock.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+PS C:\Development\GingerWallet> git restore --source=HEAD -- "WalletWasabi.Fluent/packages.lock.json"
+PS C:\Development\GingerWallet> $env:Configuration = 'Release'
+PS C:\Development\GingerWallet> dotnet restore .\WalletWasabi.sln -c Release --locked-mode
+
+Welcome to .NET 8.0!
+---------------------
+SDK Version: 8.0.100
+
+Telemetry
+---------
+The .NET tools collect usage data in order to help us improve your experience. It is collected by Microsoft and shared with the community. You can opt-out of telemetry by setting the DOTNET_CLI_TELEMETRY_OPTOUT environment variable to '1' or 'true' using your favorite shell.
+
+Read more about .NET CLI Tools telemetry: https://aka.ms/dotnet-cli-telemetry
+
+----------------
+Installed an ASP.NET Core HTTPS development certificate.
+To trust the certificate, run 'dotnet dev-certs https --trust'
+Learn about HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Write your first app: https://aka.ms/dotnet-hello-world
+Find out what's new: https://aka.ms/dotnet-whats-new
+Explore documentation: https://aka.ms/dotnet-docs
+Report issues and find source on GitHub: https://github.com/dotnet/core
+Use 'dotnet --help' to see available commands or visit: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+MSBUILD : error MSB1001: Unknown switch.
+    Full command line: 'C:\Program Files\dotnet\sdk\8.0.100\MSBuild.dll -maxcpucount -verbosity:m -nologo -target:Restore -property:RestoreLockedMode=true .\WalletWasabi.sln -c Release -distributedlogger:Microsoft.DotNet.Tools.MSBuild.MSBuildLogger,C:\Program Files\dotnet\sdk\8.0.100\dotnet.dll*Microsoft.DotNet.Tools.MSBuild.MSBuildForwardingLogger,C:\Program Files\dotnet\sdk\8.0.100\dotnet.dll'
+  Switches appended by response files:
+Switch: -c
+
+For switch syntax, type "MSBuild -help"
+PS C:\Development\GingerWallet> dotnet restore .\WalletWasabi.sln -p:Configuration=Release --locked-mode
+  Determining projects to restore...
+  Restored C:\Development\GingerWallet\WalletWasabi.Tests\WalletWasabi.Tests.csproj (in 4.77 sec).
+  Restored C:\Development\GingerWallet\WalletWasabi.Backend\WalletWasabi.Backend.csproj (in 4.78 sec).
+C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj : error NU1004: The package references have changed for net8.0. Loc
+k file's package references: Avalonia:[11.3.2, ), Avalonia.Controls.TreeDataGrid:[11.1.0, ), Avalonia.Diagnostics:[11.3.2, ), Avalonia.Fonts.I
+nter:[11.3.2, ), Avalonia.ReactiveUI:[11.3.2, ), Avalonia.Skia:[11.3.2, ), Avalonia.Themes.Fluent:[11.3.2, ), Avalonia.Xaml.Behaviors:[11.0.5,
+ ), DynamicData:[8.4.1, ), Markdown.Avalonia:[11.0.3-a1, ), Microsoft.CodeAnalysis.BannedApiAnalyzers:[3.3.4, ), QRackers:[1.1.0, ), System.Pr
+ivate.Uri:[4.3.2, ), System.Runtime:[4.3.1, ), System.Text.Json:[8.0.5, ), project's package references: Avalonia:[11.3.2, ), Avalonia.Control
+s.TreeDataGrid:[11.1.0, ), Avalonia.Fonts.Inter:[11.3.2, ), Avalonia.ReactiveUI:[11.3.2, ), Avalonia.Skia:[11.3.2, ), Avalonia.Themes.Fluent:[
+11.3.2, ), Avalonia.Xaml.Behaviors:[11.0.5, ), DynamicData:[8.4.1, ), Markdown.Avalonia:[11.0.3-a1, ), Microsoft.CodeAnalysis.BannedApiAnalyze
+rs:[3.3.4, ), QRackers:[1.1.0, ), System.Private.Uri:[4.3.2, ), System.Runtime:[4.3.1, ), System.Text.Json:[8.0.5, ).The packages lock file is
+ inconsistent with the project dependencies so restore can't be run in locked mode. Disable the RestoreLockedMode MSBuild property or pass an
+explicit --force-evaluate option to run restore to update the lock file. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Failed to restore C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj (in 86 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj (in 250 ms).
+C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj : error NU1004: The project reference walletwasabi.
+fluent has changed. Current dependencies: Avalonia,Avalonia.Controls.TreeDataGrid,Avalonia.Fonts.Inter,Avalonia.ReactiveUI,Avalonia.Skia,Avalo
+nia.Themes.Fluent,Avalonia.Xaml.Behaviors,C:\Development\GingerWallet\WalletWasabi.Daemon\WalletWasabi.Daemon.csproj,DynamicData,Markdown.Aval
+onia,QRackers,System.Private.Uri,System.Runtime,System.Text.Json lock file's dependencies: Avalonia,Avalonia.Controls.TreeDataGrid,Avalonia.Di
+agnostics,Avalonia.Fonts.Inter,Avalonia.ReactiveUI,Avalonia.Skia,Avalonia.Themes.Fluent,Avalonia.Xaml.Behaviors,DynamicData,Markdown.Avalonia,
+QRackers,System.Private.Uri,System.Runtime,System.Text.Json,Wasabi Wallet Daemon.The packages lock file is inconsistent with the project depen
+dencies so restore can't be run in locked mode. Disable the RestoreLockedMode MSBuild property or pass an explicit --force-evaluate option to
+run restore to update the lock file. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Failed to restore C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj (in 58 ms).
+Attempting to cancel the build...
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.0/microsoft.netcore.app.runti
+  me.osx-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.0/microsoft.netcore.app.runti
+  me.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.0/microsoft.netcore.app.runti
+  me.osx-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.0/microsoft.netcore.app.runti
+  me.osx-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.0/microsoft.netcore.app.runti
+  me.osx-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.0/microsoft.netcore.app.runti
+  me.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime
+  .win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.0/microsoft.netcore.app.runti
+  me.osx-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.0/microsoft.netcore.app.runti
+  me.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime
+  .win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.0/microsoft.netcore.app.runti
+  me.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime
+  .win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.0/microsoft.netcore.app.runti
+  me.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime
+  .win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime
+  .win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.0/microsoft.aspnetcore.app
+  .runtime.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.0/microsoft.aspnetcore.app
+  .runtime.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.0/microsoft.aspnetcore.app
+  .runtime.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.0/microsoft.aspnetcore.app
+  .runtime.linux-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.0/microsoft.aspnetcore.app
+  .runtime.linux-x64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.NETCore.App.Runtime.osx-arm64.8.0.0' f
+rom 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.0/microsoft.netcore.app.runtime.osx-arm64.8.0.0.nupkg'
+. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.NETCore.App.Runtime.linux-x64.8.0.0' f
+rom 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.0/microsoft.netcore.app.runtime.linux-x64.8.0.0.nupkg'
+. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.NETCore.App.Runtime.win-x64.8.0.0' fro
+m 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.0/microsoft.netcore.app.runtime.win-x64.8.0.0.nupkg'. [C:\
+Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.osx-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.osx-x64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.AspNetCore.App.Runtime.linux-x64.8.0.0
+' from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.0/microsoft.aspnetcore.app.runtime.linux-x64.8.0
+.0.nupkg'. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.osx-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.osx-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.osx-x64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.AspNetCore.App.Runtime.osx-x64.8.0.0'
+from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.0/microsoft.aspnetcore.app.runtime.osx-x64.8.0.0.nup
+kg'. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime
+  .osx-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime
+  .osx-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.r
+  untime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime
+  .osx-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime
+  .osx-x64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.AspNetCore.App.Runtime.win-x64.8.0.0'
+from 'https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.0/microsoft.aspnetcore.app.runtime.win-x64.8.0.0.nup
+kg'. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime
+  .osx-x64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.NETCore.App.Runtime.osx-x64.8.0.0' fro
+m 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.0/microsoft.netcore.app.runtime.osx-x64.8.0.0.nupkg'. [C:\
+Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.0/microsoft.netcore.app.run
+  time.linux-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.0/microsoft.netcore.app.run
+  time.linux-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.0/microsoft.netcore.app.run
+  time.linux-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.0/microsoft.netcore.app.run
+  time.linux-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.0/microsoft.netcore.app.run
+  time.linux-arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.0/microsoft.netcore.app.host.osx
+  -arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.0/microsoft.netcore.app.host.osx
+  -arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.0/microsoft.netcore.app.host.osx
+  -arm64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.0/microsoft.netcore.app.host.osx
+  -arm64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.NETCore.App.Runtime.linux-arm64.8.0.0'
+ from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.0/microsoft.netcore.app.runtime.linux-arm64.8.0.0.
+nupkg'. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.0/microsoft.netcore.app.host.osx
+  -arm64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.NETCore.App.Host.osx-arm64.8.0.0' from
+ 'https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.0/microsoft.netcore.app.host.osx-arm64.8.0.0.nupkg'. [C:\Dev
+elopment\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.runtime.win-x64/8.0.0/microsoft.windowsdeskt
+  op.app.runtime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.runtime.win-x64/8.0.0/microsoft.windowsdeskt
+  op.app.runtime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.runtime.win-x64/8.0.0/microsoft.windowsdeskt
+  op.app.runtime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.runtime.win-x64/8.0.0/microsoft.windowsdeskt
+  op.app.runtime.win-x64.8.0.0.nupkg' was canceled.
+  Downloading a package from 'https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.runtime.win-x64/8.0.0/microsoft.windowsdeskt
+  op.app.runtime.win-x64.8.0.0.nupkg' was canceled.
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Failed to download package 'Microsoft.WindowsDesktop.App.Runtime.win-x64.8.0
+.0' from 'https://api.nuget.org/v3-flatcontainer/microsoft.windowsdesktop.app.runtime.win-x64/8.0.0/microsoft.windowsdesktop.app.runtime.win-x
+64.8.0.0.nupkg'. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : A task was canceled. [C:\Development\GingerWallet\WalletWasabi.sln]
+C:\Program Files\dotnet\sdk\8.0.100\NuGet.targets(156,5): error : Restore canceled! [C:\Development\GingerWallet\WalletWasabi.sln]
+PS C:\Development\GingerWallet> dotnet restore .\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj -p:Configuration=Release --force-evaluate
+  Determining projects to restore...
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj (in 785 ms).
+  Restored C:\Development\GingerWallet\GingerCommon\GingerCommon.csproj (in 1.54 min).
+  Restored C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj (in 1.54 min).
+  Restored C:\Development\GingerWallet\WalletWasabi.Daemon\WalletWasabi.Daemon.csproj (in 1.54 min).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj (in 1.54 min).
+PS C:\Development\GingerWallet> dotnet restore .\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj -p:Configuration=Release --force-evaluate
+  Determining projects to restore...
+  Restored C:\Development\GingerWallet\GingerCommon\GingerCommon.csproj (in 934 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Daemon\WalletWasabi.Daemon.csproj (in 1.09 sec).
+  Restored C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj (in 389 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj (in 348 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj (in 1.64 sec).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj (in 1.71 sec).
+PS C:\Development\GingerWallet> dotnet restore .\WalletWasabi.sln -p:Configuration=Release --locked-mode
+  Determining projects to restore...
+  Restored C:\Development\GingerWallet\GingerCommon\GingerCommon.csproj (in 661 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Packager\WalletWasabi.Packager.csproj (in 823 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj (in 947 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Backend\WalletWasabi.Backend.csproj (in 863 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Daemon\WalletWasabi.Daemon.csproj (in 448 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj (in 346 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj (in 1.18 sec).
+  Restored C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj (in 1.37 sec).
+  Restored C:\Development\GingerWallet\WalletWasabi.Tests\WalletWasabi.Tests.csproj (in 1.65 sec).
+  2 of 11 projects are up-to-date for restore.
+PS C:\Development\GingerWallet> dotnet run -c Release -p .\WalletWasabi.Packager\WalletWasabi.Packager.csproj -- -onlybinaries
+Warning NETSDK1174: The abbreviation of -p for --project is deprecated. Please use --project.
+Attempting to cancel the build...
+
+The build failed. Fix the build errors and run again.
+PS C:\Development\GingerWallet> dotnet run -c Release --project .\WalletWasabi.Packager\WalletWasabi.Packager.csproj -- -onlybinaries
+C:\Development\GingerWallet\WalletWasabi\Helpers\Result.cs(87,31): warning CS0108: 'Result<TError>.Fail(TError)' hides inherited member 'Resul
+t<Unit, TError>.Fail(TError)'. Use the new keyword if hiding was intended. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\CoreNode.cs(25,9): warning CS8618: Non-nullable property 'Bridge' must contain a non-null
+ value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\CoreNode.cs(25,9): warning CS8618: Non-nullable property 'P2pNode' must contain a non-nul
+l value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClientParameters.cs(7,15): warning CS8618: Non-nullable property 'MaxAdditi
+onalFeeContribution' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\Ging
+erWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClientParameters.cs(8,17): warning CS8618: Non-nullable property 'MinFeeRat
+e' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWas
+abi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\Rpc\RpcParser.cs(77,37): warning CS8604: Possible null reference argument for parameter '
+hex' in 'Script Script.FromHex(string hex)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\Rpc\RpcParser.cs(89,35): warning CS8604: Possible null reference argument for parameter '
+hex' in 'Script Script.FromHex(string hex)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClient.cs(96,6): warning CS8604: Possible null reference argument for param
+eter 'value' in 'string? Extensions.Value<string>(IEnumerable<JToken> value)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClient.cs(97,6): warning CS8604: Possible null reference argument for param
+eter 'value' in 'string? Extensions.Value<string>(IEnumerable<JToken> value)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClient.cs(96,6): warning CS8604: Possible null reference argument for param
+eter 'errorCode' in 'PayjoinReceiverException.PayjoinReceiverException(int httpCode, string errorCode, string message)'. [C:\Development\Ginge
+rWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClient.cs(97,6): warning CS8604: Possible null reference argument for param
+eter 'message' in 'PayjoinReceiverException.PayjoinReceiverException(int httpCode, string errorCode, string message)'. [C:\Development\GingerW
+allet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Crypto\StrobeProtocol\StrobeHasherExtensions.cs(24,105): warning CS8604: Possible null reference argu
+ment for parameter 'str' in 'StrobeHasher StrobeHasher.Append(string fieldName, string str)'. [C:\Development\GingerWallet\WalletWasabi\Wallet
+Wasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\Transactions\TransactionFactory.cs(111,38): warning CS8604: Possible null reference argume
+nt for parameter 'amount' in 'TransactionBuilder TransactionBuilder.Send(IDestination destination, Money amount)'. [C:\Development\GingerWalle
+t\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\Transactions\TransactionFactory.cs(229,62): warning CS8604: Possible null reference argume
+nt for parameter 'changeHdPubKey' in 'PSBT TransactionFactory.TryNegotiatePayjoin(IPayjoinClient payjoinClient, TransactionBuilder builder, PS
+BT psbt, HdPubKey changeHdPubKey)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\Transactions\TransactionFactory.cs(302,23): warning CS8629: Nullable value type may be nul
+l. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\Transactions\TransactionDependencyNode.cs(10,21): warning CS8618: Non-nullable property 'T
+ransaction' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\
+WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcService.cs(80,22): warning CS8620: Argument of type '(string? Name, Type ParameterType, bo
+ol IsOptional, object? DefaultValue)' cannot be used for parameter 'item' of type '(string name, Type type, bool isOptional, object defaultVal
+ue)' in 'void List<(string name, Type type, bool isOptional, object defaultValue)>.Add((string name, Type type, bool isOptional, object defaul
+tValue) item)' due to differences in the nullability of reference types. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(62,46): warning CS8625: Cannot convert null literal to non-nullable refe
+rence type. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Models\SerializableException.cs(51,10): warning CS8603: Possible null reference return. [C:\Developme
+nt\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\WabiSabiCoordinator.cs(209,44): warning CS8602: Dereference of a possibly null reference. [C
+:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(122,21): warning CS8602: Dereference of a possibly null reference. [C:\D
+evelopment\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(122,21): warning CS8604: Possible null reference argument for parameter
+'item' in 'void List<object>.Add(object item)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(164,13): warning CS8600: Converting null literal or possible null value
+to non-nullable type. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(164,13): warning CS8602: Dereference of a possibly null reference. [C:\D
+evelopment\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(169,23): warning CS8600: Converting null literal or possible null value
+to non-nullable type. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Rpc\JsonRpcRequestHandler.cs(169,23): warning CS8602: Dereference of a possibly null reference. [C:\D
+evelopment\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Helpers\RuntimeParams.cs(13,24): warning CS8618: Non-nullable field 'FileDir' must contain a non-null
+ value when exiting constructor. Consider declaring the field as nullable. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Wallets\WalletFilterProcessor.cs(207,8): warning CS8321: The local function 'ScriptNotSpentAtTheMomen
+t' is declared but never used [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Services\TwoFactorAuthenticationService.cs(17,24): warning CS8618: Non-nullable property 'SecretFileP
+ath' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletW
+asabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\TransactionBroadcasting\TransactionBroadcaster.cs(47,72): warning CS8604: Possible null re
+ference argument for parameter 'nodeRemoteSocketEndpoint' in 'bool MempoolService.TryAddToBroadcastStore(SmartTransaction transaction, string
+nodeRemoteSocketEndpoint)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Bitcoin\ScriptJsonConverter.cs(17,21): warning CS8604: Possible null reference argumen
+t for parameter 'script' in 'Script.Script(string script)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Client\CoinJoin\Manager\CoinJoinTrackerFactory.cs(58,110): warning CS8604: Possible null ref
+erence argument for parameter 'outputWallet' in 'CoinJoinTracker.CoinJoinTracker(IWallet wallet, CoinJoinClient coinJoinClient, Func<Task<IEnu
+merable<SmartCoin>>> coinCandidatesFunc, bool stopWhenAllMixed, bool overridePlebStop, IWallet outputWallet, CancellationToken cancellationTok
+en)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Rounds\Round.cs(34,9): warning CS8618: Non-nullable property 'CoordinatorScript' mus
+t contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWasabi\Wa
+lletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Rounds\Round.cs(34,9): warning CS8618: Non-nullable property 'DenominationFrequencie
+s' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWas
+abi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Rounds\Round.cs(34,9): warning CS8618: Non-nullable property 'CoordinationFee' must
+contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWasabi\Wall
+etWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Rounds\Round.cs(34,9): warning CS8618: Non-nullable property 'ExpectedCoordinationFe
+e' must contain a non-null value when exiting constructor. Consider declaring the property as nullable. [C:\Development\GingerWallet\WalletWas
+abi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\TransactionBuilding\PaymentIntent.cs(16,99): warning CS8604: Possible null reference argum
+ent for parameter 'destination' in 'PaymentIntent.PaymentIntent(IDestination destination, MoneyRequest amount, LabelsArray? label = null)'. [C
+:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\TransactionBuilding\DestinationRequest.cs(12,105): warning CS8604: Possible null reference
+ argument for parameter 'destination' in 'DestinationRequest.DestinationRequest(IDestination destination, MoneyRequest amount, LabelsArray? la
+bels = null)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Client\Batching\Payment.cs(18,74): warning CS8604: Possible null reference argument for para
+meter 'previousState' in 'PaymentState.PaymentState(PaymentState previousState)'. [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.cspro
+j]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Rounds\Arena.cs(72,56): warning CS0067: The event 'Arena.AffiliationAdded' is never
+used [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\Wasabi\WasabiClient.cs(34,58): warning CA1305: The behavior of 'ushort.Parse(string)' coul
+d vary based on the current user's locale settings. Replace this call in 'WasabiClient.ApiVersion' with a call to 'ushort.Parse(string, IForma
+tProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Wa
+lletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\Wasabi\WasabiClient.cs(202,46): warning CA1305: The behavior of 'ushort.Parse(string)' cou
+ld vary based on the current user's locale settings. Replace this call in 'WasabiClient.GetVersionsAsync(CancellationToken)' with a call to 'u
+short.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Gi
+ngerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\Wasabi\WasabiClient.cs(209,27): warning CA1305: The behavior of 'int.Parse(string)' could
+vary based on the current user's locale settings. Replace this call in 'WasabiClient.CheckUpdatesAsync(CancellationToken)' with a call to 'int
+.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerW
+allet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\Wasabi\WasabiClient.cs(209,136): warning CA1305: The behavior of 'int.Parse(string)' could
+ vary based on the current user's locale settings. Replace this call in 'WasabiClient.CheckUpdatesAsync(CancellationToken)' with a call to 'in
+t.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginger
+Wallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Backend\Models\FilterModel.cs(58,23): warning CA1305: The behavior of 'uint.Parse(ReadOnlySpan<char>,
+ [NumberStyles], [IFormatProvider])' could vary based on the current user's locale settings. Provide a value for the 'IFormatProvider' argumen
+t. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi
+.csproj]
+C:\Development\GingerWallet\WalletWasabi\Backend\Models\FilterModel.cs(63,21): warning CA1305: The behavior of 'long.Parse(ReadOnlySpan<char>,
+ [NumberStyles], [IFormatProvider])' could vary based on the current user's locale settings. Provide a value for the 'IFormatProvider' argumen
+t. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi
+.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\PayJoin\PayjoinClient.cs(270,11): warning CA1305: The behavior of 'int.ToString()' could v
+ary based on the current user's locale settings. Replace this call in 'PayjoinClient.ApplyOptionalParameters(Uri, PayjoinClientParameters)' wi
+th a call to 'int.ToString(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Develop
+ment\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\Rpc\RpcClientBase.cs(82,17): warning CA1305: The behavior of 'int.Parse(string)' could va
+ry based on the current user's locale settings. Replace this call in 'RpcClientBase.GetMempoolInfoAsync([CancellationToken])' with a call to '
+int.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ging
+erWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\Processes\PidFile.cs(53,42): warning CA1305: The behavior of 'int.ToString()' could vary
+based on the current user's locale settings. Replace this call in 'PidFile.WriteFileAsync(int)' with a call to 'int.ToString(IFormatProvider)'
+. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.
+csproj]
+C:\Development\GingerWallet\WalletWasabi\BitcoinCore\Processes\PidFile.cs(44,10): warning CA1305: The behavior of 'int.Parse(string)' could va
+ry based on the current user's locale settings. Replace this call in 'PidFile.TryReadAsync()' with a call to 'int.Parse(string, IFormatProvide
+r)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasa
+bi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WebClients\Coingate\CoingateExchangeRateProvider.cs(35,15): warning CA1305: The behavior of 'decimal.
+Parse(string)' could vary based on the current user's locale settings. Replace this call in 'CoingateExchangeRateProvider.GetExchangeRateAsync
+(CancellationToken)' with a call to 'decimal.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/q
+uality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Extensions\NBitcoinExtensions.cs(171,4): warning CA1305: The behavior of 'StringBuilder.Append(ref St
+ringBuilder.AppendInterpolatedStringHandler)' could vary based on the current user's locale settings. Replace this call in 'IEnumerable<Money>
+.ListToString([MoneyUnit], [string])' with a call to 'StringBuilder.Append(IFormatProvider, ref StringBuilder.AppendInterpolatedStringHandler)
+'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi
+.csproj]
+C:\Development\GingerWallet\WalletWasabi\Extensions\NBitcoinExtensions.cs(171,22): warning CA1305: The behavior of 'decimal.ToString(string)'
+could vary based on the current user's locale settings. Replace this call in 'IEnumerable<Money>.ListToString([MoneyUnit], [string])' with a c
+all to 'decimal.ToString(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\D
+evelopment\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Extensions\NBitcoinExtensions.cs(187,4): warning CA1305: The behavior of 'StringBuilder.Append(ref St
+ringBuilder.AppendInterpolatedStringHandler)' could vary based on the current user's locale settings. Replace this call in 'IEnumerable<double
+>.ListToString(string)' with a call to 'StringBuilder.Append(IFormatProvider, ref StringBuilder.AppendInterpolatedStringHandler)'. (https://le
+arn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Extensions\NBitcoinExtensions.cs(187,22): warning CA1305: The behavior of 'double.ToString(string)' c
+ould vary based on the current user's locale settings. Replace this call in 'IEnumerable<double>.ListToString(string)' with a call to 'double.
+ToString(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginge
+rWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Userfacing\EndPointParser.cs(69,21): warning CA1305: The behavior of 'int.ToString()' could vary base
+d on the current user's locale settings. Replace this call in 'EndPointParser.TryParse(string, int, out EndPoint)' with a call to 'int.ToStrin
+g(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletW
+asabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Services\UpdateManager.cs(158,27): warning CA1304: The behavior of 'string.ToLower()' could vary base
+d on the current user's locale settings. Replace this call in 'UpdateManager.VerifyInstallerHashAsync(string, string, CancellationToken)' with
+ a call to 'string.ToLower(CultureInfo)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development
+\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\TorProcessManager.cs(189,40): warning CA2000: Use recommended dispose pattern to ensure that obje
+ct created by 'new()' is disposed on all paths. If possible, wrap the creation within a 'using' statement or a 'using' declaration. Otherwise,
+ use a try-finally pattern, with a dedicated local variable declared before the try region and an unconditional Dispose invocation on non-null
+ value in the 'finally' region, say 'x?.Dispose()'. If the object is explicitly disposed within the try region or the dispose ownership is tra
+nsfered to another object or method, assign 'null' to the local variable just after such an operation to prevent double dispose in 'finally'.
+(https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca2000) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.cs
+proj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\WalletHeightJsonConverter.cs(19,22): warning CA1305: The behavior of 'int.ToString()'
+could vary based on the current user's locale settings. Replace this call in 'WalletHeightJsonConverter.WriteJson(JsonWriter, Height?, JsonSer
+ializer)' with a call to 'int.ToString(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305)
+ [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Stores\BlockFilterSqliteStorage.cs(83,21): warning CA1305: The behavior of 'Convert.ToInt32(object)'
+could vary based on the current user's locale settings. Replace this call in 'BlockFilterSqliteStorage.FromFile(string, [FilterModel])' with a
+ call to 'Convert.ToInt32(object, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\
+Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverterNg.cs(28,14): warning CA1305: The behavior of 'int.Parse(s
+tring)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverterNg.Parse(string)' with a call to 'i
+nt.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginge
+rWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverterNg.cs(30,15): warning CA1305: The behavior of 'int.Parse(s
+tring)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverterNg.Parse(string)' with a call to 'i
+nt.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginge
+rWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverterNg.cs(32,17): warning CA1305: The behavior of 'int.Parse(s
+tring)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverterNg.Parse(string)' with a call to 'i
+nt.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginge
+rWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverterNg.cs(34,17): warning CA1305: The behavior of 'int.Parse(s
+tring)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverterNg.Parse(string)' with a call to 'i
+nt.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginge
+rWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Helpers\WasabiSignerHelpers.cs(82,31): warning CA1304: The behavior of 'string.ToLower()' could vary
+based on the current user's locale settings. Replace this call in 'WasabiSignerHelpers.VerifyInstallerFileHashesAsync(string[], string)' with
+a call to 'string.ToLower(CultureInfo)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development\
+GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverter.cs(23,15): warning CA1305: The behavior of 'int.Parse(str
+ing)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverter.Parse(string)' with a call to 'int.P
+arse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWal
+let\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverter.cs(25,16): warning CA1305: The behavior of 'int.Parse(str
+ing)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverter.Parse(string)' with a call to 'int.P
+arse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWal
+let\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverter.cs(27,18): warning CA1305: The behavior of 'int.Parse(str
+ing)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverter.Parse(string)' with a call to 'int.P
+arse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWal
+let\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\Timing\TimeSpanJsonConverter.cs(29,18): warning CA1305: The behavior of 'int.Parse(str
+ing)' could vary based on the current user's locale settings. Replace this call in 'TimeSpanJsonConverter.Parse(string)' with a call to 'int.P
+arse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWal
+let\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Models\Height.cs(356,11): warning CA1305: The behavior of 'int.ToString()' could vary based on the cu
+rrent user's locale settings. Replace this call in 'Height.ToString()' with a call to 'int.ToString(IFormatProvider)'. (https://learn.microsof
+t.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Stores\BlockFilterSqliteStorage.cs(337,23): warning CA1305: The behavior of 'uint.Parse(ReadOnlySpan<
+char>, [NumberStyles], [IFormatProvider])' could vary based on the current user's locale settings. Provide a value for the 'IFormatProvider' a
+rgument. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Wallet
+Wasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Stores\BlockFilterSqliteStorage.cs(343,21): warning CA1305: The behavior of 'long.Parse(ReadOnlySpan<
+char>, [NumberStyles], [IFormatProvider])' could vary based on the current user's locale settings. Provide a value for the 'IFormatProvider' a
+rgument. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Wallet
+Wasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\IntegerArrayJsonConverter.cs(26,52): warning CA1305: The behavior of 'int.Parse(string
+)' could vary based on the current user's locale settings. Replace this call in 'IntegerArrayJsonConverter.Parse(string)' with a call to 'int.
+Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWa
+llet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\HeightJsonConverter.cs(16,15): warning CA1305: The behavior of 'long.Parse(string)' co
+uld vary based on the current user's locale settings. Replace this call in 'HeightJsonConverter.ReadJson(JsonReader, Type, Height?, bool, Json
+Serializer)' with a call to 'long.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rule
+s/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\HeightJsonConverter.cs(29,22): warning CA1305: The behavior of 'int.ToString()' could
+vary based on the current user's locale settings. Replace this call in 'HeightJsonConverter.WriteJson(JsonWriter, Height?, JsonSerializer)' wi
+th a call to 'int.ToString(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Develop
+ment\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Control\TorControlClient.cs(135,16): warning CA1305: The behavior of 'int.Parse(string)' could va
+ry based on the current user's locale settings. Replace this call in 'TorControlClient.GetTorProcessIdAsync(CancellationToken)' with a call to
+ 'int.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Gi
+ngerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Control\Messages\TorControlReply.cs(53,10): warning CA1305: The behavior of 'string.Format(string
+, object, object)' could vary based on the current user's locale settings. Replace this call in 'TorControlReply.ToString()' with a call to 's
+tring.Format(IFormatProvider, string, params object[])'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305)
+[C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Socks5\Models\Fields\ByteArrayFields\PortField.cs(35,39): warning CA1305: The behavior of 'int.To
+String()' could vary based on the current user's locale settings. Replace this call in 'PortField.ToString()' with a call to 'int.ToString(IFo
+rmatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi
+\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Control\Messages\StreamStatus\StreamInfo.cs(242,35): warning CA1305: The behavior of 'int.ToStrin
+g()' could vary based on the current user's locale settings. Replace this call in 'StreamInfo.ToString()' with a call to 'int.ToString(IFormat
+Provider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Wal
+letWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Control\Messages\StreamStatus\StreamInfo.cs(243,43): warning CA1305: The behavior of 'int.ToStrin
+g()' could vary based on the current user's locale settings. Replace this call in 'StreamInfo.ToString()' with a call to 'int.ToString(IFormat
+Provider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Wal
+letWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Socks5\Models\Fields\ByteArrayFields\AddrField.cs(118,17): warning CA1305: The behavior of 'byte.
+ToString()' could vary based on the current user's locale settings. Replace this call in 'AddrField.DomainOrIPv4.get' with a call to 'byte.ToS
+tring(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\Wal
+letWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Http\Models\StatusLine.cs(31,15): warning CA1305: The behavior of 'int.Parse(string)' could vary
+based on the current user's locale settings. Replace this call in 'StatusLine.Parse(string)' with a call to 'int.Parse(string, IFormatProvider
+)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasab
+i.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\Keys\WalletGenerator.cs(68,47): warning CA1304: The behavior of 'string.ToUpper()' could v
+ary based on the current user's locale settings. Replace this call in 'WalletGenerator.ValidateWalletName(string)' with a call to 'string.ToUp
+per(CultureInfo)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development\GingerWallet\WalletWas
+abi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Blockchain\Keys\WalletGenerator.cs(68,76): warning CA1304: The behavior of 'string.ToUpper()' could v
+ary based on the current user's locale settings. Replace this call in 'WalletGenerator.ValidateWalletName(string)' with a call to 'string.ToUp
+per(CultureInfo)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development\GingerWallet\WalletWas
+abi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Control\Messages\Events\OrEvents\OrConnEvent.cs(66,14): warning CA1305: The behavior of 'int.Pars
+e(string)' could vary based on the current user's locale settings. Replace this call in 'OrConnEvent.FromReply(TorControlReply)' with a call t
+o 'int.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\G
+ingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Hwi\HwiClient.cs(116,22): warning CA1305: The behavior of 'int.ToString()' could vary based on the cu
+rrent user's locale settings. Replace this call in 'HwiClient.SendPinImplAsync(HardwareWalletModels?, string, HDFingerprint?, int, Cancellatio
+nToken)' with a call to 'int.ToString(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305)
+[C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Http\Models\HeaderSection.cs(181,60): warning CA1305: The behavior of 'long.ToString()' could var
+y based on the current user's locale settings. Replace this call in 'HeaderSection.CreateNew(HttpHeaders)' with a call to 'long.ToString(IForm
+atProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\W
+alletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Banning\Innocent.cs(27,53): warning CA1305: The behavior of 'long.Parse(string)' cou
+ld vary based on the current user's locale settings. Replace this call in 'Innocent.TryReadFromString(string, out Innocent)' with a call to 'l
+ong.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ging
+erWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Banning\Innocent.cs(28,61): warning CA1305: The behavior of 'int.Parse(string)' coul
+d vary based on the current user's locale settings. Replace this call in 'Innocent.TryReadFromString(string, out Innocent)' with a call to 'in
+t.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Ginger
+Wallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\JsonConverters\BlockCypherDateTimeOffsetJsonConverter.cs(25,27): warning CA1305: The behavior of 'Dat
+eTimeOffset.ToString()' could vary based on the current user's locale settings. Replace this call in 'BlockCypherDateTimeOffsetJsonConverter.W
+riteJson(JsonWriter, DateTimeOffset?, JsonSerializer)' with a call to 'DateTimeOffset.ToString(IFormatProvider)'. (https://learn.microsoft.com
+/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Statistics\CoinJoinFeeRateStat.cs(18,49): warning CA1305: The behavior of 'long.Pars
+e(string)' could vary based on the current user's locale settings. Replace this call in 'CoinJoinFeeRateStat.FromLine(string)' with a call to
+'long.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Gi
+ngerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Statistics\CoinJoinFeeRateStat.cs(19,28): warning CA1305: The behavior of 'uint.Pars
+e(string)' could vary based on the current user's locale settings. Replace this call in 'CoinJoinFeeRateStat.FromLine(string)' with a call to
+'uint.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Gi
+ngerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\Statistics\CoinJoinFeeRateStat.cs(20,44): warning CA1305: The behavior of 'long.Pars
+e(string)' could vary based on the current user's locale settings. Replace this call in 'CoinJoinFeeRateStat.FromLine(string)' with a call to
+'long.Parse(string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\Gi
+ngerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\Tor\Http\Helpers\HttpMessageHelper.cs(325,77): warning CA1305: The behavior of 'long.ToString()' coul
+d vary based on the current user's locale settings. Replace this call in 'HttpMessageHelper.GetDecodedChunkedContentBytesAsync(Stream, HttpRes
+ponseContentHeaders, CancellationToken)' with a call to 'long.ToString(IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/cod
+e-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\DoSPrevention\Offender.cs(38,17): warning CA1305: The behavior of 'long.ToString()'
+could vary based on the current user's locale settings. Replace this call in 'Offender.ToStringLine()' with a call to 'long.ToString(IFormatPr
+ovider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Walle
+tWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\DoSPrevention\Offender.cs(44,19): warning CA1305: The behavior of 'long.ToString()'
+could vary based on the current user's locale settings. Replace this call in 'Offender.ToStringLine()' with a call to 'long.ToString(IFormatPr
+ovider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\WalletWasabi\Walle
+tWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\DoSPrevention\Offender.cs(100,56): warning CA1305: The behavior of 'long.Parse(strin
+g)' could vary based on the current user's locale settings. Replace this call in 'Offender.FromStringLine(string)' with a call to 'long.Parse(
+string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\W
+alletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi\WabiSabi\Backend\DoSPrevention\Offender.cs(108,21): warning CA1305: The behavior of 'long.Parse(strin
+g)' could vary based on the current user's locale settings. Replace this call in 'Offender.FromStringLine(string)' with a call to 'long.Parse(
+string, IFormatProvider)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1305) [C:\Development\GingerWallet\W
+alletWasabi\WalletWasabi.csproj]
+C:\Development\GingerWallet\WalletWasabi.Packager\Tools.cs(74,27): warning CA1304: The behavior of 'char.ToLower(char)' could vary based on th
+e current user's locale settings. Replace this call in 'Tools.CreateWslCommand(string, params string[])' with a call to 'char.ToLower(char, Cu
+ltureInfo)'. (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development\GingerWallet\WalletWasabi.Pa
+ckager\WalletWasabi.Packager.csproj]
+C:\Development\GingerWallet\WalletWasabi.Packager\Tools.cs(64,22): warning CA1304: The behavior of 'char.ToUpper(char)' could vary based on th
+e current user's locale settings. Replace this call in 'Tools.Win2WslPath(string, out char)' with a call to 'char.ToUpper(char, CultureInfo)'.
+ (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development\GingerWallet\WalletWasabi.Packager\Walle
+tWasabi.Packager.csproj]
+C:\Development\GingerWallet\WalletWasabi.Packager\Tools.cs(65,18): warning CA1304: The behavior of 'char.ToLower(char)' could vary based on th
+e current user's locale settings. Replace this call in 'Tools.Win2WslPath(string, out char)' with a call to 'char.ToLower(char, CultureInfo)'.
+ (https://learn.microsoft.com/dotnet/fundamentals/code-analysis/quality-rules/ca1304) [C:\Development\GingerWallet\WalletWasabi.Packager\Walle
+tWasabi.Packager.csproj]
+I'll only generate binaries and disregard all other options.
+VersionPrefix:                  2.0.21
+ExecutableName:                 wassabee
+
+Targets:                        win-x64, linux-x64, osx-x64, osx-arm64
+# Run dotnet restore
+  Determining projects to restore...
+  Restored C:\Development\GingerWallet\GingerCommon\GingerCommon.csproj (in 760 ms).
+  Restored C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj (in 837 ms).
+  4 of 6 projects are up-to-date for restore.
+# Run dotnet clean
+MSBuild version 17.8.3+195e7f5a3 for .NET
+Build started 9/2/2025 7:51:12 PM.
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" on node 1 (Clean target(s)).
+     1>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Daemon.deps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Daemon.runtimeconfig.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Legal\Assets\LegalDocumentsGingerWallet.txt
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\hwi".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\.gitattrib
+         utes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libcrypto.
+         so.3".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libevent-2
+         .1.so.7".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libssl.so.
+         3".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libstdc++\
+         libstdc++.so.6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\osx64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\osx64\hwi".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\.gitattrib
+         utes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\libevent-2
+         .1.7.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\win64\bitcoind.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\win64\hwi.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\win64\Tor\.gitattrib
+         utes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\win64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microservices\Binaries\win64\Tor\tor.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Tor\Geoip\geoip".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Tor\Geoip\geoip6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Daemon.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.Desktop.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.Desktop.deps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.Desktop.runtimeconfig.j
+         son".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.Desktop.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.Desktop.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Base.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Controls.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.DesignerSupport.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Dialogs.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Markup.Xaml.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Markup.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Metal.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.MicroCom.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.OpenGL.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Vulkan.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\AvaloniaEdit.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Controls.TreeDataGrid.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Desktop.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Fonts.Inter.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.FreeDesktop.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Native.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.ReactiveUI.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Remote.Protocol.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Skia.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Svg.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Themes.Fluent.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Win32.Automation.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Win32.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.X11.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.Custom.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.DragAndDrop.dll"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.Draggable.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.Events.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.Reactive.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactions.Responsive.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Avalonia.Xaml.Interactivity.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\ColorDocument.Avalonia.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\ColorTextBlock.Avalonia.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\DynamicData.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\ExCSS.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Fizzler.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\HarfBuzzSharp.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\HtmlAgilityPack.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\LinqKit.Core.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Markdown.Avalonia.Full.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Markdown.Avalonia.Html.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Markdown.Avalonia.Svg.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Markdown.Avalonia.SyntaxHigh.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Markdown.Avalonia.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\MicroCom.Runtime.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.AspNetCore.WebUtilities.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Bcl.AsyncInterfaces.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Data.Sqlite.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Caching.Abstractions.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Caching.Memory.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Configuration.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Configuration.Abstract
+         ions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Configuration.Binder.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.dl
+         l".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.Ab
+         stractions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Diagnostics.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Diagnostics.Abstractio
+         ns.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.FileProviders.Abstract
+         ions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Hosting.Abstractions.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Http.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Logging.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Logging.Abstractions.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Logging.Configuration.
+         dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Logging.Console.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Logging.Debug.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Options.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Options.ConfigurationE
+         xtensions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Extensions.Primitives.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Net.Http.Headers.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Microsoft.Win32.SystemEvents.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\NBitcoin.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\NBitcoin.Secp256k1.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Newtonsoft.Json.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\NNostr.Client.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\QRackers.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\ReactiveUI.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\ShimSkiaSharp.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\SkiaSharp.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Splat.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\SQLitePCLRaw.batteries_v2.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\SQLitePCLRaw.core.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Svg.Custom.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Svg.Model.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\System.Interactive.Async.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\System.IO.Pipelines.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\System.Linq.Async.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\System.Reactive.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\Tmds.DBus.Protocol.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WabiSabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-arm64\native\av_libglesv2.dll"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x64\native\av_libglesv2.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x86\native\av_libglesv2.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\osx\native\libAvaloniaNative.dylib
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-arm\native\libHarfBuzzSharp.
+         so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-arm64\native\libHarfBuzzShar
+         p.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-loongarch64\native\libHarfBu
+         zzSharp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-arm\native\libHarfBuzzS
+         harp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-arm64\native\libHarfBuz
+         zSharp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-loongarch64\native\libH
+         arfBuzzSharp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-riscv64\native\libHarfB
+         uzzSharp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-x64\native\libHarfBuzzS
+         harp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-riscv64\native\libHarfBuzzSh
+         arp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-x64\native\libHarfBuzzSharp.
+         so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-x86\native\libHarfBuzzSharp.
+         so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\osx\native\libHarfBuzzSharp.dylib"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-arm64\native\libHarfBuzzSharp.
+         dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x64\native\libHarfBuzzSharp.dl
+         l".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x86\native\libHarfBuzzSharp.dl
+         l".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.Sys
+         temEvents.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-arm\native\libSkiaSharp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-arm64\native\libSkiaSharp.so
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-x64\native\libSkiaSharp
+         .so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-x64\native\libSkiaSharp.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\osx\native\libSkiaSharp.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x64\native\libSkiaSharp.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x86\native\libSkiaSharp.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e
+         _sqlite3.a".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-arm\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-armel\native\libe_sqlite3.so
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-mips64\native\libe_sqlite3.s
+         o".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-arm\native\libe_sqlite3
+         .so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-arm64\native\libe_sqlit
+         e3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-musl-x64\native\libe_sqlite3
+         .so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-ppc64le\native\libe_sqlite3.
+         so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-s390x\native\libe_sqlite3.so
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-x64\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\linux-x86\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\maccatalyst-arm64\native\libe_sqli
+         te3.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\maccatalyst-x64\native\libe_sqlite
+         3.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\osx-arm64\native\libe_sqlite3.dyli
+         b".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-arm\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-arm64\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x64\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\runtimes\win-x86\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\GingerCommon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Daemon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Fluent.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\WalletWasabi.Daemon.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\de\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\es\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\fr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\hu\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\it\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\pt\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\tr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\zh\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.csproj.Assembly
+         Reference.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\Avalonia\Resources.Inputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\Avalonia\resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.GeneratedMSBuil
+         dEditorConfig.editorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.AssemblyInfoInp
+         uts.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.AssemblyInfo.cs
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.csproj.CoreComp
+         ileInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.sourcelink.json
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWa.0FFA279D.Up2Date".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\refint\WalletWasabi.Fluent.Desktop.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\WalletWasabi.Fluent.Desktop.genruntimeconfi
+         g.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\obj\Release\net8.0\ref\WalletWasabi.Fluent.Desktop.dll".
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (2:2) on node 1 (Clean target(s)).
+     2>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Daemon.deps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Daemon.runtimeconfig.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Legal\Assets\LegalDocumentsGingerWallet.txt".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\hwi".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libcrypto.so.3".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libevent-2.1.so.7"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libssl.so.3".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libstdc++\libstdc+
+         +.so.6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\osx64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\osx64\hwi".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\libevent-2.1.7.dyl
+         ib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\win64\bitcoind.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\win64\hwi.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\win64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\win64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Microservices\Binaries\win64\Tor\tor.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Tor\Geoip\geoip".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\Tor\Geoip\geoip6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Daemon.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Fluent.deps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Fluent.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Fluent.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\GingerCommon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Daemon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\WalletWasabi.Daemon.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\de\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\es\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\fr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\hu\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\it\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\pt\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\tr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\bin\Release\net8.0\zh\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.csproj.AssemblyReference.cache"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\Avalonia\Resources.Inputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\Avalonia\resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.GeneratedMSBuildEditorConfig.ed
+         itorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.AssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.AssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.csproj.CoreCompileInputs.cache"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.sourcelink.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWa.43F36615.Up2Date".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\refint\WalletWasabi.Fluent.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\WalletWasabi.Fluent.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent\obj\Release\net8.0\ref\WalletWasabi.Fluent.dll".
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\GingerCommon\GingerCommon.csproj" (3:2) on node 3 (Clean target(s)).
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\bin\Release\net8.0\GingerCommon.deps.json".
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\WalletWasabi\WalletWasabi.csproj" (4:2) on node 4 (Clean target(s)).
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Legal\Assets\LegalDocumentsGingerWallet.txt".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\bin\Release\net8.0\GingerCommon.dll".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\hwi".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\GingerCommon.csproj.AssemblyReference.cache".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\.gitattributes".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\GingerCommon.GeneratedMSBuildEditorConfig.editorconfig".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libcrypto.so.3".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\GingerCommon.AssemblyInfoInputs.cache".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libevent-2.1.so.7".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\GingerCommon.AssemblyInfo.cs".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libssl.so.3".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\GingerCommon.csproj.CoreCompileInputs.cache".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libstdc++\libstdc++.so.6"
+         .
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\GingerCommon.dll".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\LICENSE".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\refint\GingerCommon.dll".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\tor".
+     3>CoreClean:
+         Deleting file "C:\Development\GingerWallet\GingerCommon\obj\Release\net8.0\ref\GingerCommon.dll".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\osx64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\osx64\hwi".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\libevent-2.1.7.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\win64\bitcoind.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\win64\hwi.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\win64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\win64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Microservices\Binaries\win64\Tor\tor.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Tor\Geoip\geoip".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\Tor\Geoip\geoip6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\WalletWasabi.deps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\WalletWasabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\de\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\es\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\fr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\hu\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\it\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\pt\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\tr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\zh\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\bin\Release\net8.0\GingerCommon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.csproj.AssemblyReference.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.de.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.es.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.fr.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.hu.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.it.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.pt.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.tr.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.Lang.Resources.zh.resources".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.csproj.GenerateResource.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.GeneratedMSBuildEditorConfig.editorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.AssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.AssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.csproj.CoreCompileInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\de\WalletWasabi.resources.cs".
+     3>Done Building Project "C:\Development\GingerWallet\GingerCommon\GingerCommon.csproj" (Clean target(s)).
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\de\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\es\WalletWasabi.resources.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\es\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\fr\WalletWasabi.resources.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\fr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\hu\WalletWasabi.resources.cs".
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\WalletWasabi.Daemon\WalletWasabi.Daemon.csproj" (5:2) on node 2 (Clean target(s)).
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Legal\Assets\LegalDocumentsGingerWallet.txt".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\hu\WalletWasabi.resources.dll".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\bitcoind".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\it\WalletWasabi.resources.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\it\WalletWasabi.resources.dll".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\hwi".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\pt\WalletWasabi.resources.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\pt\WalletWasabi.resources.dll".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\.gitattributes".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\tr\WalletWasabi.resources.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\tr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\zh\WalletWasabi.resources.cs".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libcrypto.so.3".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\zh\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.dll".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libevent-2.1.so.7"
+         .
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\refint\WalletWasabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\ref\WalletWasabi.dll".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libssl.so.3".
+     4>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi\obj\Release\net8.0\WalletWasabi.csproj.CopyComplete".
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\libstdc++\libstdc+
+         +.so.6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\lin64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\osx64\bitcoind".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\osx64\hwi".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\libevent-2.1.7.dyl
+         ib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\osx64\Tor\tor".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\win64\bitcoind.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\win64\hwi.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\win64\Tor\.gitattributes".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\win64\Tor\LICENSE".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microservices\Binaries\win64\Tor\tor.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Tor\Geoip\geoip".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Tor\Geoip\geoip6".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WalletWasabi.Daemon.exe".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WalletWasabi.Daemon.deps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WalletWasabi.Daemon.runtimeconfig.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WalletWasabi.Daemon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WalletWasabi.Daemon.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\LinqKit.Core.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.AspNetCore.WebUtilities.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Bcl.AsyncInterfaces.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Data.Sqlite.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Caching.Abstractions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Caching.Memory.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Configuration.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Configuration.Binder.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.DependencyInjection.Abstractio
+         ns.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Diagnostics.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+         ".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Http.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Logging.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Logging.Abstractions.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Logging.Configuration.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Logging.Console.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Logging.Debug.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Options.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Options.ConfigurationExtension
+         s.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Extensions.Primitives.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Net.Http.Headers.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Microsoft.Win32.SystemEvents.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\NBitcoin.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\NBitcoin.Secp256k1.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\Newtonsoft.Json.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\NNostr.Client.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\SQLitePCLRaw.batteries_v2.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\SQLitePCLRaw.core.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\SQLitePCLRaw.provider.e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\System.Interactive.Async.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\System.IO.Pipelines.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\System.Linq.Async.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WabiSabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\win\lib\net8.0\Microsoft.Win32.SystemEvent
+         s.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3
+         .a".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-arm\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-armel\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-mips64\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-musl-arm\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-musl-x64\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-ppc64le\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-s390x\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-x64\native\libe_sqlite3.so".
+     4>Done Building Project "C:\Development\GingerWallet\WalletWasabi\WalletWasabi.csproj" (Clean target(s)).
+     5>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\linux-x86\native\libe_sqlite3.so".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dyli
+         b".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\osx-arm64\native\libe_sqlite3.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\osx-x64\native\libe_sqlite3.dylib".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\win-arm\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\win-arm64\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\win-x64\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\runtimes\win-x86\native\e_sqlite3.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\GingerCommon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\WalletWasabi.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\de\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\es\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\fr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\hu\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\it\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\pt\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\tr\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\bin\Release\net8.0\zh\WalletWasabi.resources.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.csproj.AssemblyReference.cache"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.GeneratedMSBuildEditorConfig.ed
+         itorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.AssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.AssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.csproj.CoreCompileInputs.cache"
+         .
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.sourcelink.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWa.24395C1F.Up2Date".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\refint\WalletWasabi.Daemon.dll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.pdb".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\WalletWasabi.Daemon.genruntimeconfig.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Daemon\obj\Release\net8.0\ref\WalletWasabi.Daemon.dll".
+   2:2>Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (2:2) is building "C:\Development\GingerWallet\Wal
+       letWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (6:2) on node 3 (Clean target(s)).
+     6>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         eps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.p
+         db".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.AssemblyReference.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.G
+         eneratedMSBuildEditorConfig.editorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.CoreCompileInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.s
+         ourcelink.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.p
+         db".
+     6>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (Clean target(
+       s)).
+     5>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Daemon\WalletWasabi.Daemon.csproj" (Clean target(s)).
+     2>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (Clean target(s)).
+     1>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (Clean target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.50
+# Deleted C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release
+# Deleted C:\Development\GingerWallet\WalletWasabi\bin\Release
+# Binaries will be delivered here: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist
+BEWARE: There are uncommitted changes in the repository. Do you want to continue? (Y/N)
+Y
+
+# Packaging for platform 'win-x64' to folder:   C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\win-x64
+
+# Created C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\win-x64
+MSBuild version 17.8.3+195e7f5a3 for .NET
+Build started 9/2/2025 7:51:29 PM.
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.75
+
+# Packaging for platform 'linux-x64' to folder: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\linux-x64
+
+# Created C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\linux-x64
+MSBuild version 17.8.3+195e7f5a3 for .NET
+Build started 9/2/2025 7:52:45 PM.
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" on node 1 (Clean target(s)).
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (5:2) on node 1 (Clean target(s)).
+   5:2>Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (5:2) is building "C:\Development\GingerWallet\Wal
+       letWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (6:2) on node 4 (Clean target(s)).
+     6>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         eps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.AssemblyReference.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.G
+         eneratedMSBuildEditorConfig.editorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.CoreCompileInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+     5>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (Clean target(s)).
+     6>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (Clean target(
+       s)).
+     1>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (Clean target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.99
+
+# Packaging for platform 'osx-x64' to folder:   C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\osx-x64
+
+# Created C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\osx-x64
+MSBuild version 17.8.3+195e7f5a3 for .NET
+Build started 9/2/2025 7:53:44 PM.
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" on node 1 (Clean target(s)).
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (5:2) on node 1 (Clean target(s)).
+   5:2>Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (5:2) is building "C:\Development\GingerWallet\Wal
+       letWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (6:2) on node 3 (Clean target(s)).
+     6>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         eps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.AssemblyReference.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.G
+         eneratedMSBuildEditorConfig.editorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.CoreCompileInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+     6>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (Clean target(
+       s)).
+     5>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (Clean target(s)).
+     1>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (Clean target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.00
+
+# Packaging for platform 'osx-arm64' to folder: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\osx-arm64
+
+# Created C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\dist\osx-arm64
+MSBuild version 17.8.3+195e7f5a3 for .NET
+Build started 9/2/2025 7:54:50 PM.
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" on node 1 (Clean target(s)).
+     1>Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (1) is building "C:\Development\Gi
+       ngerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (5:2) on node 1 (Clean target(s)).
+   5:2>Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (5:2) is building "C:\Development\GingerWallet\Wal
+       letWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (6:2) on node 3 (Clean target(s)).
+     6>CoreClean:
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         eps.json".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\bin\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.AssemblyReference.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.G
+         eneratedMSBuildEditorConfig.editorconfig".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfoInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.A
+         ssemblyInfo.cs".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.c
+         sproj.CoreCompileInputs.cache".
+         Deleting file "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\obj\Release\netstandard2.0\WalletWasabi.Fluent.Generators.d
+         ll".
+     6>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Generators\WalletWasabi.Fluent.Generators.csproj" (Clean target(
+       s)).
+     5>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent\WalletWasabi.Fluent.csproj" (Clean target(s)).
+     1>Done Building Project "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\WalletWasabi.Fluent.Desktop.csproj" (Clean target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.76
+PS C:\Development\GingerWallet> cd .\WalletWasabi.Packager\bin\Release\net8.0\
+PS C:\Development\GingerWallet\WalletWasabi.Packager\bin\Release\net8.0> ls
+
+
+    Directory: C:\Development\GingerWallet\WalletWasabi.Packager\bin\Release\net8.0
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/2/2025   7:51 PM                de
+d-----          9/2/2025   7:51 PM                es
+d-----          9/2/2025   7:51 PM                fr
+d-----          9/2/2025   7:51 PM                hu
+d-----          9/2/2025   7:51 PM                it
+d-----          9/2/2025   5:56 PM                Legal
+d-----          9/2/2025   5:56 PM                Microservices
+d-----          9/2/2025   7:51 PM                pt
+d-----          9/2/2025   5:56 PM                runtimes
+d-----          9/2/2025   5:56 PM                Tor
+d-----          9/2/2025   7:51 PM                tr
+d-----          9/2/2025   7:51 PM                zh
+-a----          9/2/2025   7:49 PM          60416 GingerCommon.dll
+-a----        11/19/2023   5:13 PM          38400 LinqKit.Core.dll
+-a----         11/1/2023   9:06 AM         106256 Microsoft.AspNetCore.WebUtilities.dll
+-a----        10/23/2021   7:47 AM          16000 Microsoft.Bcl.AsyncInterfaces.dll
+-a----         11/1/2023   6:15 AM         173088 Microsoft.Data.Sqlite.dll
+-a----        10/31/2023  10:58 PM          31008 Microsoft.Extensions.Caching.Abstractions.dll
+-a----        10/31/2023  10:59 PM          27936 Microsoft.Extensions.Configuration.Abstractions.dll
+-a----         6/14/2024   3:35 AM          42784 Microsoft.Extensions.Configuration.Binder.dll
+-a----        10/31/2023  10:59 PM          43800 Microsoft.Extensions.Configuration.dll
+-a----         9/17/2024   7:09 AM          63768 Microsoft.Extensions.DependencyInjection.Abstractions.dll
+-a----         9/17/2024   7:09 AM          92952 Microsoft.Extensions.DependencyInjection.dll
+-a----        10/31/2023  10:59 PM          30368 Microsoft.Extensions.Diagnostics.Abstractions.dll
+-a----        10/31/2023  10:59 PM          35488 Microsoft.Extensions.Diagnostics.dll
+-a----        10/31/2023  10:59 PM          22176 Microsoft.Extensions.FileProviders.Abstractions.dll
+-a----        10/31/2023  10:59 PM          51360 Microsoft.Extensions.Hosting.Abstractions.dll
+-a----        10/31/2023  10:59 PM          88736 Microsoft.Extensions.Http.dll
+-a----         9/17/2024   7:09 AM          65320 Microsoft.Extensions.Logging.Abstractions.dll
+-a----         9/17/2024   7:10 AM          27912 Microsoft.Extensions.Logging.Configuration.dll
+-a----         9/17/2024   7:10 AM          71464 Microsoft.Extensions.Logging.Console.dll
+-a----         9/17/2024   7:10 AM          20248 Microsoft.Extensions.Logging.Debug.dll
+-a----         9/17/2024   7:10 AM          50976 Microsoft.Extensions.Logging.dll
+-a----        10/31/2023  10:59 PM          22688 Microsoft.Extensions.Options.ConfigurationExtensions.dll
+-a----         1/18/2024  11:05 AM          64776 Microsoft.Extensions.Options.dll
+-a----        10/31/2023  10:58 PM          43680 Microsoft.Extensions.Primitives.dll
+-a----         11/1/2023   9:06 AM          84656 Microsoft.Net.Http.Headers.dll
+-a----        10/31/2023  11:00 PM          25880 Microsoft.Win32.SystemEvents.dll
+-a----         5/15/2025   4:39 PM        1580032 NBitcoin.dll
+-a----         2/29/2024   1:48 PM         116736 NBitcoin.Secp256k1.dll
+-a----         3/18/2021   4:03 AM         695336 Newtonsoft.Json.dll
+-a----         5/23/2024   6:58 PM         156672 NNostr.Client.dll
+-a----         8/24/2023   2:41 AM           5120 SQLitePCLRaw.batteries_v2.dll
+-a----         8/24/2023   2:38 AM          50688 SQLitePCLRaw.core.dll
+-a----         8/24/2023   2:38 AM          35840 SQLitePCLRaw.provider.e_sqlite3.dll
+-a----          2/1/2022  11:32 PM         230032 System.Interactive.Async.dll
+-a----        10/31/2023  10:59 PM          77984 System.IO.Pipelines.dll
+-a----          2/1/2022  11:33 PM        1112720 System.Linq.Async.dll
+-a----         9/17/2024   7:09 AM         580360 System.Text.Json.dll
+-a----         3/24/2023  12:13 PM          80384 WabiSabi.dll
+-a----          9/2/2025   7:51 PM        2306048 WalletWasabi.dll
+-a----          9/2/2025   7:51 PM          36697 WalletWasabi.Packager.deps.json
+-a----          9/2/2025   7:51 PM          41984 WalletWasabi.Packager.dll
+-a----          9/2/2025   7:51 PM         141312 WalletWasabi.Packager.exe
+-a----          9/2/2025   7:51 PM            340 WalletWasabi.Packager.runtimeconfig.json
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Packager\bin\Release\net8.0> cd ..\..\..\..
+PS C:\Development\GingerWallet> cd .\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0> ls
+
+
+    Directory: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/2/2025   7:53 PM                linux-x64
+d-----          9/2/2025   7:55 PM                osx-arm64
+d-----          9/2/2025   7:54 PM                osx-x64
+d-----          9/2/2025   7:52 PM                win-x64
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0> cd .\linux-x64\
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64> cd publish
+cd : Cannot find path 'C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64\publish'
+because it does not exist.
+At line:1 char:1
++ cd publish
++ ~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Development\...nux-x64\publish:String) [Set-Location], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64> ls
+
+
+    Directory: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          9/2/2025   7:53 PM                de
+d-----          9/2/2025   7:53 PM                es
+d-----          9/2/2025   7:53 PM                fr
+d-----          9/2/2025   7:53 PM                hu
+d-----          9/2/2025   7:53 PM                it
+d-----          9/2/2025   7:53 PM                Legal
+d-----          9/2/2025   7:53 PM                Microservices
+d-----          9/2/2025   7:53 PM                pt
+d-----          9/2/2025   7:53 PM                Tor
+d-----          9/2/2025   7:53 PM                tr
+d-----          9/2/2025   7:53 PM                zh
+-a----         6/24/2025   6:55 PM        2068480 Avalonia.Base.dll
+-a----         6/24/2025   6:55 PM        1065984 Avalonia.Controls.dll
+-a----         12/5/2024   4:20 AM         313856 Avalonia.Controls.TreeDataGrid.dll
+-a----         6/24/2025   6:55 PM         208896 Avalonia.DesignerSupport.dll
+-a----         6/24/2025   6:55 PM          14848 Avalonia.Desktop.dll
+-a----         6/24/2025   6:55 PM         242688 Avalonia.Dialogs.dll
+-a----         6/24/2025   6:55 PM           4096 Avalonia.dll
+-a----         6/24/2025   6:55 PM        1892352 Avalonia.Fonts.Inter.dll
+-a----         6/24/2025   6:55 PM         197120 Avalonia.FreeDesktop.dll
+-a----         6/24/2025   6:55 PM          65024 Avalonia.Markup.dll
+-a----         6/24/2025   6:55 PM          84480 Avalonia.Markup.Xaml.dll
+-a----         6/24/2025   6:55 PM          13824 Avalonia.Metal.dll
+-a----         6/24/2025   6:55 PM          15360 Avalonia.MicroCom.dll
+-a----         6/24/2025   6:59 PM         294400 Avalonia.Native.dll
+-a----         6/24/2025   6:55 PM         114688 Avalonia.OpenGL.dll
+-a----         6/24/2025   6:55 PM          35328 Avalonia.ReactiveUI.dll
+-a----         6/24/2025   6:55 PM          69632 Avalonia.Remote.Protocol.dll
+-a----         6/24/2025   6:55 PM         127488 Avalonia.Skia.dll
+-a----          7/5/2023  11:12 PM          47104 Avalonia.Svg.dll
+-a----         6/24/2025   6:55 PM         575488 Avalonia.Themes.Fluent.dll
+-a----         6/24/2025   6:55 PM         190464 Avalonia.Vulkan.dll
+-a----         6/24/2025   6:55 PM         113152 Avalonia.Win32.Automation.dll
+-a----         6/24/2025   6:55 PM         907264 Avalonia.Win32.dll
+-a----         6/24/2025   6:55 PM         337408 Avalonia.X11.dll
+-a----        11/15/2023   4:14 PM          34304 Avalonia.Xaml.Interactions.Custom.dll
+-a----        11/15/2023   4:14 PM          33792 Avalonia.Xaml.Interactions.dll
+-a----        11/15/2023   4:14 PM          28160 Avalonia.Xaml.Interactions.DragAndDrop.dll
+-a----        11/15/2023   4:14 PM          41984 Avalonia.Xaml.Interactions.Draggable.dll
+-a----        11/15/2023   4:14 PM          26624 Avalonia.Xaml.Interactions.Events.dll
+-a----        11/15/2023   4:14 PM          14848 Avalonia.Xaml.Interactions.Reactive.dll
+-a----        11/15/2023   4:14 PM          21504 Avalonia.Xaml.Interactions.Responsive.dll
+-a----        11/15/2023   4:14 PM          30720 Avalonia.Xaml.Interactivity.dll
+-a----          7/6/2023   4:56 PM         644096 AvaloniaEdit.dll
+-a----         3/17/2024   2:35 AM          37888 ColorDocument.Avalonia.dll
+-a----         3/17/2024   2:35 AM          64000 ColorTextBlock.Avalonia.dll
+-a----        10/31/2023  10:46 PM         108400 createdump
+-a----         3/20/2024   6:43 PM         906752 DynamicData.dll
+-a----          7/7/2022   1:35 AM         328704 ExCSS.dll
+-a----          1/8/2021   6:01 AM          34304 Fizzler.dll
+-a----          9/2/2025   7:52 PM          59392 GingerCommon.dll
+-a----         4/26/2025   2:37 AM         122440 HarfBuzzSharp.dll
+-a----          2/4/2022  10:41 PM         163328 HtmlAgilityPack.dll
+-a----        10/31/2023  10:48 PM         823592 libclrgc.so
+-a----        10/31/2023  10:51 PM        3647984 libclrjit.so
+-a----        10/31/2023  10:49 PM        6915816 libcoreclr.so
+-a----        10/31/2023  10:46 PM         760632 libcoreclrtraceptprovider.so
+-a----         8/24/2023   2:33 AM        1249880 libe_sqlite3.so
+-a----         4/26/2025   1:42 AM        2471408 libHarfBuzzSharp.so
+-a----        10/31/2023  11:11 PM         289168 libhostfxr.so
+-a----        10/31/2023  11:11 PM         310352 libhostpolicy.so
+-a----        10/31/2023  10:49 PM        2438048 libmscordaccore.so
+-a----        10/31/2023  10:49 PM        1635240 libmscordbi.so
+-a----         11/7/2024   9:03 PM        9244960 libSkiaSharp.so
+-a----        10/31/2023  10:52 PM          60576 libSystem.Globalization.Native.so
+-a----        10/31/2023  10:52 PM         867416 libSystem.IO.Compression.Native.so
+-a----        10/31/2023  10:52 PM          90656 libSystem.Native.so
+-a----        10/31/2023  10:52 PM          13544 libSystem.Net.Security.Native.so
+-a----        10/31/2023  10:52 PM         155104 libSystem.Security.Cryptography.Native.OpenSsl.so
+-a----        11/19/2023   5:13 PM          38400 LinqKit.Core.dll
+-a----         3/17/2024   2:35 AM         185344 Markdown.Avalonia.dll
+-a----         3/17/2024   2:35 AM           7168 Markdown.Avalonia.Full.dll
+-a----         3/17/2024   2:35 AM          76800 Markdown.Avalonia.Html.dll
+-a----         3/17/2024   2:35 AM           9728 Markdown.Avalonia.Svg.dll
+-a----         3/17/2024   2:35 AM          43520 Markdown.Avalonia.SyntaxHigh.dll
+-a----         11/2/2022   5:37 PM          14336 MicroCom.Runtime.dll
+-a----         11/1/2023   9:06 AM         106256 Microsoft.AspNetCore.WebUtilities.dll
+-a----        10/23/2021   7:47 AM          16000 Microsoft.Bcl.AsyncInterfaces.dll
+-a----        10/31/2023  11:12 PM         817312 Microsoft.CSharp.dll
+-a----         11/1/2023   6:15 AM         173088 Microsoft.Data.Sqlite.dll
+-a----        10/31/2023  10:58 PM          31008 Microsoft.Extensions.Caching.Abstractions.dll
+-a----         9/17/2024   7:10 AM          45832 Microsoft.Extensions.Caching.Memory.dll
+-a----        10/31/2023  10:59 PM          27936 Microsoft.Extensions.Configuration.Abstractions.dll
+-a----         6/14/2024   3:35 AM          42784 Microsoft.Extensions.Configuration.Binder.dll
+-a----        10/31/2023  10:59 PM          43800 Microsoft.Extensions.Configuration.dll
+-a----         9/17/2024   7:09 AM          63768 Microsoft.Extensions.DependencyInjection.Abstractions.dll
+-a----         9/17/2024   7:09 AM          92952 Microsoft.Extensions.DependencyInjection.dll
+-a----        10/31/2023  10:59 PM          30368 Microsoft.Extensions.Diagnostics.Abstractions.dll
+-a----        10/31/2023  10:59 PM          35488 Microsoft.Extensions.Diagnostics.dll
+-a----        10/31/2023  10:59 PM          22176 Microsoft.Extensions.FileProviders.Abstractions.dll
+-a----        10/31/2023  10:59 PM          51360 Microsoft.Extensions.Hosting.Abstractions.dll
+-a----        10/31/2023  10:59 PM          88736 Microsoft.Extensions.Http.dll
+-a----         9/17/2024   7:09 AM          65320 Microsoft.Extensions.Logging.Abstractions.dll
+-a----         9/17/2024   7:10 AM          27912 Microsoft.Extensions.Logging.Configuration.dll
+-a----         9/17/2024   7:10 AM          71464 Microsoft.Extensions.Logging.Console.dll
+-a----         9/17/2024   7:10 AM          20248 Microsoft.Extensions.Logging.Debug.dll
+-a----         9/17/2024   7:10 AM          50976 Microsoft.Extensions.Logging.dll
+-a----        10/31/2023  10:59 PM          22688 Microsoft.Extensions.Options.ConfigurationExtensions.dll
+-a----         1/18/2024  11:05 AM          64776 Microsoft.Extensions.Options.dll
+-a----        10/31/2023  10:58 PM          43680 Microsoft.Extensions.Primitives.dll
+-a----         11/1/2023   9:06 AM          84656 Microsoft.Net.Http.Headers.dll
+-a----        10/31/2023  11:12 PM        1218736 Microsoft.VisualBasic.Core.dll
+-a----        10/31/2023  10:52 PM          17680 Microsoft.VisualBasic.dll
+-a----        10/31/2023  10:52 PM          15632 Microsoft.Win32.Primitives.dll
+-a----        10/31/2023  11:12 PM          32928 Microsoft.Win32.Registry.dll
+-a----        10/31/2023  11:00 PM          25880 Microsoft.Win32.SystemEvents.dll
+-a----        10/31/2023  10:52 PM          59664 mscorlib.dll
+-a----         5/15/2025   4:39 PM        1580032 NBitcoin.dll
+-a----         2/29/2024   1:48 PM         116736 NBitcoin.Secp256k1.dll
+-a----        10/31/2023  10:52 PM         101144 netstandard.dll
+-a----         3/18/2021   4:03 AM         695336 Newtonsoft.Json.dll
+-a----         5/23/2024   6:58 PM         156672 NNostr.Client.dll
+-a----          7/1/2023   1:59 AM         346624 QRackers.dll
+-a----         5/18/2024   5:18 PM         329744 ReactiveUI.dll
+-a----          7/5/2023  11:12 PM         155648 ShimSkiaSharp.dll
+-a----         11/7/2024   9:55 PM         437808 SkiaSharp.dll
+-a----         5/17/2024   7:22 AM         140816 Splat.dll
+-a----         8/24/2023   2:41 AM           5120 SQLitePCLRaw.batteries_v2.dll
+-a----         8/24/2023   2:38 AM          50688 SQLitePCLRaw.core.dll
+-a----         8/24/2023   2:38 AM          35840 SQLitePCLRaw.provider.e_sqlite3.dll
+-a----          7/5/2023  11:12 PM         718336 Svg.Custom.dll
+-a----          7/5/2023  11:12 PM         144384 Svg.Model.dll
+-a----        10/31/2023  10:52 PM          15624 System.AppContext.dll
+-a----        10/31/2023  10:52 PM          15648 System.Buffers.dll
+-a----        10/31/2023  11:12 PM         270496 System.Collections.Concurrent.dll
+-a----        10/31/2023  11:12 PM         253088 System.Collections.dll
+-a----        10/31/2023  11:12 PM         843528 System.Collections.Immutable.dll
+-a----        10/31/2023  11:12 PM          93872 System.Collections.NonGeneric.dll
+-a----        10/31/2023  11:12 PM          93856 System.Collections.Specialized.dll
+-a----        10/31/2023  11:12 PM         192176 System.ComponentModel.Annotations.dll
+-a----        10/31/2023  10:52 PM          17056 System.ComponentModel.DataAnnotations.dll
+-a----        10/31/2023  11:12 PM          17568 System.ComponentModel.dll
+-a----        10/31/2023  11:12 PM          36512 System.ComponentModel.EventBasedAsync.dll
+-a----        10/31/2023  11:12 PM          71328 System.ComponentModel.Primitives.dll
+-a----        10/31/2023  11:12 PM         746144 System.ComponentModel.TypeConverter.dll
+-a----        10/31/2023  10:52 PM          19720 System.Configuration.dll
+-a----        10/31/2023  11:12 PM         200352 System.Console.dll
+-a----        10/31/2023  10:52 PM          23824 System.Core.dll
+-a----        10/31/2023  11:12 PM        2899104 System.Data.Common.dll
+-a----        10/31/2023  10:52 PM          16144 System.Data.DataSetExtensions.dll
+-a----        10/31/2023  10:52 PM          25352 System.Data.dll
+-a----        10/31/2023  10:52 PM          16664 System.Diagnostics.Contracts.dll
+-a----        10/31/2023  10:52 PM          16160 System.Diagnostics.Debug.dll
+-a----        10/31/2023  11:12 PM         409760 System.Diagnostics.DiagnosticSource.dll
+-a----        10/31/2023  11:12 PM          43680 System.Diagnostics.FileVersionInfo.dll
+-a----        10/31/2023  11:12 PM         274080 System.Diagnostics.Process.dll
+-a----        10/31/2023  11:12 PM          30896 System.Diagnostics.StackTrace.dll
+-a----        10/31/2023  11:12 PM          60168 System.Diagnostics.TextWriterTraceListener.dll
+-a----        10/31/2023  10:52 PM          15624 System.Diagnostics.Tools.dll
+-a----        10/31/2023  11:12 PM         134816 System.Diagnostics.TraceSource.dll
+-a----        10/31/2023  10:52 PM          16648 System.Diagnostics.Tracing.dll
+-a----        10/31/2023  10:52 PM          50448 System.dll
+-a----        10/31/2023  10:52 PM          20752 System.Drawing.dll
+-a----        10/31/2023  11:12 PM         125088 System.Drawing.Primitives.dll
+-a----        10/31/2023  10:52 PM          16648 System.Dynamic.Runtime.dll
+-a----        10/31/2023  11:12 PM         226480 System.Formats.Asn1.dll
+-a----        10/31/2023  11:12 PM         277664 System.Formats.Tar.dll
+-a----        10/31/2023  10:52 PM          16152 System.Globalization.Calendars.dll
+-a----        10/31/2023  10:52 PM          16160 System.Globalization.dll
+-a----        10/31/2023  10:52 PM          15632 System.Globalization.Extensions.dll
+-a----          2/1/2022  11:32 PM         230032 System.Interactive.Async.dll
+-a----        10/31/2023  11:12 PM          73376 System.IO.Compression.Brotli.dll
+-a----        10/31/2023  11:12 PM         260256 System.IO.Compression.dll
+-a----        10/31/2023  10:52 PM          15632 System.IO.Compression.FileSystem.dll
+-a----        10/31/2023  11:12 PM          55456 System.IO.Compression.ZipFile.dll
+-a----        10/31/2023  10:52 PM          16136 System.IO.dll
+-a----        10/31/2023  11:12 PM          31904 System.IO.FileSystem.AccessControl.dll
+-a----        10/31/2023  10:52 PM          16160 System.IO.FileSystem.dll
+-a----        10/31/2023  11:12 PM          78496 System.IO.FileSystem.DriveInfo.dll
+-a----        10/31/2023  10:52 PM          15632 System.IO.FileSystem.Primitives.dll
+-a----        10/31/2023  11:12 PM         102048 System.IO.FileSystem.Watcher.dll
+-a----        10/31/2023  11:12 PM          77072 System.IO.IsolatedStorage.dll
+-a----        10/31/2023  11:12 PM          80544 System.IO.MemoryMappedFiles.dll
+-a----        10/31/2023  10:59 PM          77984 System.IO.Pipelines.dll
+-a----        10/31/2023  11:12 PM          23712 System.IO.Pipes.AccessControl.dll
+-a----        10/31/2023  11:12 PM         126112 System.IO.Pipes.dll
+-a----        10/31/2023  10:52 PM          15640 System.IO.UnmanagedMemoryStream.dll
+-a----          2/1/2022  11:33 PM        1112720 System.Linq.Async.dll
+-a----        10/31/2023  11:12 PM         545440 System.Linq.dll
+-a----        10/31/2023  11:13 PM        3766960 System.Linq.Expressions.dll
+-a----        10/31/2023  11:13 PM         798384 System.Linq.Parallel.dll
+-a----        10/31/2023  11:13 PM         168096 System.Linq.Queryable.dll
+-a----        10/31/2023  11:13 PM         147632 System.Memory.dll
+-a----        10/31/2023  10:52 PM          17672 System.Net.dll
+-a----        10/31/2023  11:13 PM        1710256 System.Net.Http.dll
+-a----        10/31/2023  11:13 PM         119984 System.Net.Http.Json.dll
+-a----        10/31/2023  11:13 PM         296608 System.Net.HttpListener.dll
+-a----        10/31/2023  11:13 PM         423584 System.Net.Mail.dll
+-a----        10/31/2023  11:13 PM          84640 System.Net.NameResolution.dll
+-a----        10/31/2023  11:13 PM         170144 System.Net.NetworkInformation.dll
+-a----        10/31/2023  11:13 PM         101040 System.Net.Ping.dll
+-a----        10/31/2023  11:13 PM         229536 System.Net.Primitives.dll
+-a----        10/31/2023  11:13 PM         280240 System.Net.Quic.dll
+-a----        10/31/2023  11:13 PM         340640 System.Net.Requests.dll
+-a----        10/31/2023  11:13 PM         800416 System.Net.Security.dll
+-a----        10/31/2023  11:13 PM          35488 System.Net.ServicePoint.dll
+-a----        10/31/2023  11:13 PM         588960 System.Net.Sockets.dll
+-a----        10/31/2023  11:13 PM         163488 System.Net.WebClient.dll
+-a----        10/31/2023  11:13 PM          57520 System.Net.WebHeaderCollection.dll
+-a----        10/31/2023  11:13 PM          33440 System.Net.WebProxy.dll
+-a----        10/31/2023  11:13 PM          90272 System.Net.WebSockets.Client.dll
+-a----        10/31/2023  11:13 PM         180384 System.Net.WebSockets.dll
+-a----        10/31/2023  10:52 PM          15640 System.Numerics.dll
+-a----        10/31/2023  10:52 PM          16136 System.Numerics.Vectors.dll
+-a----        10/31/2023  11:13 PM          68768 System.ObjectModel.dll
+-a----        10/31/2023  10:57 PM       12872352 System.Private.CoreLib.dll
+-a----        10/31/2023  11:13 PM        2098336 System.Private.DataContractSerialization.dll
+-a----        10/31/2023  11:13 PM         249008 System.Private.Uri.dll
+-a----        10/31/2023  11:13 PM        8128688 System.Private.Xml.dll
+-a----        10/31/2023  11:13 PM         400032 System.Private.Xml.Linq.dll
+-a----         5/22/2024   1:25 AM        1344592 System.Reactive.dll
+-a----        10/31/2023  11:13 PM          65712 System.Reflection.DispatchProxy.dll
+-a----        10/31/2023  10:52 PM          16672 System.Reflection.dll
+-a----        10/31/2023  11:13 PM         118944 System.Reflection.Emit.dll
+-a----        10/31/2023  10:52 PM          16144 System.Reflection.Emit.ILGeneration.dll
+-a----        10/31/2023  10:52 PM          16144 System.Reflection.Emit.Lightweight.dll
+-a----        10/31/2023  10:52 PM          15632 System.Reflection.Extensions.dll
+-a----        10/31/2023  11:13 PM        1115424 System.Reflection.Metadata.dll
+-a----        10/31/2023  10:52 PM          16136 System.Reflection.Primitives.dll
+-a----        10/31/2023  11:13 PM          31904 System.Reflection.TypeExtensions.dll
+-a----        10/31/2023  10:52 PM          15624 System.Resources.Reader.dll
+-a----        10/31/2023  10:52 PM          16160 System.Resources.ResourceManager.dll
+-a----        10/31/2023  11:13 PM          43184 System.Resources.Writer.dll
+-a----        10/31/2023  10:52 PM          15632 System.Runtime.CompilerServices.Unsafe.dll
+-a----        10/31/2023  11:13 PM          19632 System.Runtime.CompilerServices.VisualC.dll
+-a----        10/31/2023  10:52 PM          43808 System.Runtime.dll
+-a----        10/31/2023  10:52 PM          18184 System.Runtime.Extensions.dll
+-a----        10/31/2023  10:52 PM          15648 System.Runtime.Handles.dll
+-a----        10/31/2023  11:13 PM          86288 System.Runtime.InteropServices.dll
+-a----        10/31/2023  11:13 PM          39088 System.Runtime.InteropServices.JavaScript.dll
+-a----        10/31/2023  10:52 PM          15624 System.Runtime.InteropServices.RuntimeInformation.dll
+-a----        10/31/2023  10:52 PM          17160 System.Runtime.Intrinsics.dll
+-a----        10/31/2023  10:52 PM          16136 System.Runtime.Loader.dll
+-a----        10/31/2023  11:13 PM         307992 System.Runtime.Numerics.dll
+-a----        10/31/2023  10:52 PM          17168 System.Runtime.Serialization.dll
+-a----        10/31/2023  11:13 PM         305416 System.Runtime.Serialization.Formatters.dll
+-a----        10/31/2023  10:52 PM          16136 System.Runtime.Serialization.Json.dll
+-a----        10/31/2023  11:13 PM          28832 System.Runtime.Serialization.Primitives.dll
+-a----        10/31/2023  10:52 PM          17160 System.Runtime.Serialization.Xml.dll
+-a----        10/31/2023  11:13 PM          58632 System.Security.AccessControl.dll
+-a----        10/31/2023  11:13 PM          90376 System.Security.Claims.dll
+-a----        10/31/2023  10:52 PM          17672 System.Security.Cryptography.Algorithms.dll
+-a----        10/31/2023  10:52 PM          16648 System.Security.Cryptography.Cng.dll
+-a----        10/31/2023  10:52 PM          16144 System.Security.Cryptography.Csp.dll
+-a----        10/31/2023  11:13 PM        2179744 System.Security.Cryptography.dll
+-a----        10/31/2023  10:52 PM          16136 System.Security.Cryptography.Encoding.dll
+-a----        10/31/2023  10:52 PM          15632 System.Security.Cryptography.OpenSsl.dll
+-a----        10/31/2023  10:52 PM          16160 System.Security.Cryptography.Primitives.dll
+-a----        10/31/2023  10:52 PM          17168 System.Security.Cryptography.X509Certificates.dll
+-a----        10/31/2023  10:52 PM          18712 System.Security.dll
+-a----        10/31/2023  10:52 PM          15632 System.Security.Principal.dll
+-a----        10/31/2023  11:13 PM          37536 System.Security.Principal.Windows.dll
+-a----        10/31/2023  10:52 PM          15624 System.Security.SecureString.dll
+-a----        10/31/2023  10:52 PM          17056 System.ServiceModel.Web.dll
+-a----        10/31/2023  10:52 PM          16160 System.ServiceProcess.dll
+-a----        10/31/2023  11:13 PM         852656 System.Text.Encoding.CodePages.dll
+-a----        10/31/2023  10:52 PM          16144 System.Text.Encoding.dll
+-a----        10/31/2023  10:52 PM          16152 System.Text.Encoding.Extensions.dll
+-a----        10/31/2023  11:13 PM         120608 System.Text.Encodings.Web.dll
+-a----         9/17/2024   7:09 AM         580360 System.Text.Json.dll
+-a----        10/31/2023  11:13 PM        1027744 System.Text.RegularExpressions.dll
+-a----        10/31/2023  11:13 PM         122120 System.Threading.Channels.dll
+-a----        10/31/2023  11:13 PM          73888 System.Threading.dll
+-a----        10/31/2023  10:52 PM          16144 System.Threading.Overlapped.dll
+-a----        10/31/2023  11:13 PM         487712 System.Threading.Tasks.Dataflow.dll
+-a----        10/31/2023  10:52 PM          16672 System.Threading.Tasks.dll
+-a----        10/31/2023  10:52 PM          16160 System.Threading.Tasks.Extensions.dll
+-a----        10/31/2023  11:13 PM         125216 System.Threading.Tasks.Parallel.dll
+-a----        10/31/2023  10:52 PM          16136 System.Threading.Thread.dll
+-a----        10/31/2023  10:52 PM          16144 System.Threading.ThreadPool.dll
+-a----        10/31/2023  10:52 PM          15624 System.Threading.Timer.dll
+-a----        10/31/2023  10:52 PM          16664 System.Transactions.dll
+-a----        10/31/2023  11:14 PM         365320 System.Transactions.Local.dll
+-a----        10/31/2023  10:52 PM          15624 System.ValueTuple.dll
+-a----        10/31/2023  10:52 PM          15632 System.Web.dll
+-a----        10/31/2023  11:14 PM          49936 System.Web.HttpUtility.dll
+-a----        10/31/2023  10:52 PM          16144 System.Windows.dll
+-a----        10/31/2023  10:52 PM          23832 System.Xml.dll
+-a----        10/31/2023  10:52 PM          16160 System.Xml.Linq.dll
+-a----        10/31/2023  10:52 PM          22304 System.Xml.ReaderWriter.dll
+-a----        10/31/2023  10:52 PM          16664 System.Xml.Serialization.dll
+-a----        10/31/2023  10:52 PM          16160 System.Xml.XDocument.dll
+-a----        10/31/2023  10:52 PM          16160 System.Xml.XmlDocument.dll
+-a----        10/31/2023  10:52 PM          18200 System.Xml.XmlSerializer.dll
+-a----        10/31/2023  10:52 PM          16136 System.Xml.XPath.dll
+-a----        10/31/2023  11:14 PM          17672 System.Xml.XPath.XDocument.dll
+-a----        11/22/2024   6:22 PM         200704 Tmds.DBus.Protocol.dll
+-a----         3/24/2023  12:13 PM          80384 WabiSabi.dll
+-a----          9/2/2025   7:53 PM          72520 WalletWasabi.Daemon
+-a----          9/2/2025   7:53 PM          60551 WalletWasabi.Daemon.deps.json
+-a----          9/2/2025   7:53 PM         177152 WalletWasabi.Daemon.dll
+-a----          9/2/2025   7:53 PM            371 WalletWasabi.Daemon.runtimeconfig.json
+-a----          9/2/2025   7:53 PM        2305536 WalletWasabi.dll
+-a----          9/2/2025   7:53 PM          72520 WalletWasabi.Fluent.Desktop
+-a----          9/2/2025   7:53 PM         113854 WalletWasabi.Fluent.Desktop.deps.json
+-a----          9/2/2025   7:53 PM         287744 WalletWasabi.Fluent.Desktop.dll
+-a----          9/2/2025   7:53 PM            371 WalletWasabi.Fluent.Desktop.runtimeconfig.json
+-a----          9/2/2025   7:53 PM        5645824 WalletWasabi.Fluent.dll
+-a----        10/31/2023  10:52 PM          16656 WindowsBase.dll
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64> ls pub*
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64> $Local = "C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64\WalletWasabi.Fluent.Desktop.exe"
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\linux-x64> cd C:\Users\danny\Downloads\Ginger-2.0.21\win-x64\
+PS C:\Users\danny\Downloads\Ginger-2.0.21\win-x64> ls *.exe
+
+
+    Directory: C:\Users\danny\Downloads\Ginger-2.0.21\win-x64
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          9/2/2025   8:20 PM          61800 createdump.exe
+-a----          9/2/2025   8:20 PM         260608 wassabee.exe
+-a----          9/2/2025   8:20 PM         139264 wassabeed.exe
+
+
+PS C:\Users\danny\Downloads\Ginger-2.0.21\win-x64> $Official = "C:\Users\danny\Downloads\Ginger-2.0.21\win-x64\wassabee.exe"
+PS C:\Users\danny\Downloads\Ginger-2.0.21\win-x64> Get-FileHash $Local -Algorithm SHA256
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          EC25F5F2DDAB71587AC90EB60AA507A22E013D711DBCE9D4CB87CE8F3E8B422C       C:\Development\GingerWallet\W...
+
+
+PS C:\Users\danny\Downloads\Ginger-2.0.21\win-x64> Get-FileHash $Official -Algorithm SHA256
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          EC8EAD734252B59C2D6155ED7F06723FB4CCA0F3BDA40726959523E3364E6D1A       C:\Users\danny\Downloads\Ging...
+
+
+PS C:\Users\danny\Downloads\Ginger-2.0.21\win-x64> cd C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64\
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> ls *.exe
+
+
+    Directory: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        10/31/2023  10:57 PM          61256 createdump.exe
+-a----          9/2/2025   7:51 PM         141312 WalletWasabi.Daemon.exe
+-a----          9/2/2025   7:52 PM         262656 WalletWasabi.Fluent.Desktop.exe
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> $LocalDir = "C:
+>> \Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64"
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> $OfficialDir = "C:\Users\danny\Downloads\Ginger-2.0.21\win-x64"
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> Get-FileHash "$LocalDir\WalletWasabi.Fluent.dll" -Algorithm SHA256
+Resolve-Path : Illegal characters in path.
+At
+C:\Windows\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility\Microsoft.PowerShell.Utility.psm1:110
+char:36
++                 $pathsToProcess += Resolve-Path $Path | Foreach-Objec ...
++                                    ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (C:\Development\...sabi.Fluent.dll:String) [Resolve-Path], ArgumentExce
+   ption
+    + FullyQualifiedErrorId : ItemExistsArgumentError,Microsoft.PowerShell.Commands.ResolvePathCommand
+
+Resolve-Path : Cannot find path 'C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64\
+\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64\WalletWasabi.Fluent.dll' because it
+does not exist.
+At
+C:\Windows\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility\Microsoft.PowerShell.Utility.psm1:110
+char:36
++                 $pathsToProcess += Resolve-Path $Path | Foreach-Objec ...
++                                    ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Development\...sabi.Fluent.dll:String) [Resolve-Path], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.ResolvePathCommand
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> echo $LocalDir
+C:
+\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> ls .\WalletWasabi.Fluent.dll     
+
+    Directory: C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----          9/2/2025   7:52 PM        5645824 WalletWasabi.Fluent.dll
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> Get-FileHash "$LocalDir\WalletWasabi.Fluent.dll" -Algorithm SHA256
+Resolve-Path : Illegal characters in path.
+At
+C:\Windows\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility\Microsoft.PowerShell.Utility.psm1:110
+char:36
++                 $pathsToProcess += Resolve-Path $Path | Foreach-Objec ...
++                                    ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (C:\Development\...sabi.Fluent.dll:String) [Resolve-Path], ArgumentExce
+   ption
+    + FullyQualifiedErrorId : ItemExistsArgumentError,Microsoft.PowerShell.Commands.ResolvePathCommand
+
+Resolve-Path : Cannot find path 'C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64\
+\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64\WalletWasabi.Fluent.dll' because it
+does not exist.
+At
+C:\Windows\system32\WindowsPowerShell\v1.0\Modules\Microsoft.PowerShell.Utility\Microsoft.PowerShell.Utility.psm1:110
+char:36
++                 $pathsToProcess += Resolve-Path $Path | Foreach-Objec ...
++                                    ~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Development\...sabi.Fluent.dll:String) [Resolve-Path], ItemNotFoundE
+   xception
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.ResolvePathCommand
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> Get-FileHash ".\WalletWasabi.Fluent.dll" -Algorithm SHA256
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          1047B38C7C7B0EEFF558E19274A9A24A205353D46EDCB1F97210C2DB32754607       C:\Development\GingerWallet\W...
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64> Get-FileHash "$OfficialDir\WalletWasabi.Fluent.dll" -Algorithm SHA256
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          FFDE292A41F6E81BEBCD33DC5935DCF33C7DA4EB91AA07EC021E31EDC734190E       C:\Users\danny\Downloads\Ging...
+
+
+PS C:\Development\GingerWallet\WalletWasabi.Fluent.Desktop\bin\Release\net8.0\win-x64>
