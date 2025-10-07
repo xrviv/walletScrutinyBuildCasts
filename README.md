@@ -1,4 +1,5 @@
-# walletScrutinyBuildCasts
+# walletScrutinyBuildCasts - Reproducible Verification Testing Recordings for Bitcoin Apps, Programs and Devices  
+
 A repository for displaying walletscrutiny asciicasts pertaining to the reproducibile builds of Android, Desktop apps and hardware firmware. 
 
 ### Requirements
